@@ -25,14 +25,14 @@ func _process(delta):
 		_retreat(delta)
 
 func _approach(delta):
-	vec = target.global_position - global_position
+	var vec = target.global_position - global_position
 	global_position += vec.normalized() * approach_speed * delta
 
 func _attack(delta):
 	pass
 
 func _retreat(delta):
-	vec = global_position - target.global_position
+	var vec = global_position - target.global_position
 	global_position += vec.normalized() * retreat_speed * delta
 
 func _on_Aggro_body_entered(body):
