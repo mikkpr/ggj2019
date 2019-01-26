@@ -24,8 +24,8 @@ func _physics_process(delta):
     
     var sprite_size = Vector2(32, 32)
     
-    position.x = clamp(position.x, $Camera.limit_left + sprite_size.x / 2, $Camera.limit_right - sprite_size.x / 2)
-    position.y = clamp(position.y, $Camera.limit_top + sprite_size.y / 2, $Camera.limit_bottom - sprite_size.y / 2)
+    #position.x = clamp(position.x, $Camera.limit_left + sprite_size.x / 2, $Camera.limit_right - sprite_size.x / 2)
+    #position.y = clamp(position.y, $Camera.limit_top + sprite_size.y / 2, $Camera.limit_bottom - sprite_size.y / 2)
 
 func get_input():
     velocity = Vector2()

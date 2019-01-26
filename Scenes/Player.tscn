@@ -18,11 +18,12 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform", "collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Lightpivot" type="Position2D" parent="." index="1"]
 
@@ -53,10 +54,10 @@ anchor_mode = 1
 rotating = false
 current = true
 zoom = Vector2( 0.5, 0.5 )
-limit_left = 0
-limit_top = 0
-limit_right = 1024
-limit_bottom = 768
+limit_left = -1600
+limit_top = -1280
+limit_right = 1600
+limit_bottom = 1600
 limit_smoothed = true
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true

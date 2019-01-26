@@ -52,6 +52,6 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="Player" parent="." index="2" instance=ExtResource( 2 )]
 
-position = Vector2( 57.0842, -181.123 )
+position = Vector2( -140.876, -217.116 )
 
 
