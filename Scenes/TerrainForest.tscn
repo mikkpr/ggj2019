@@ -2,35 +2,35 @@
 
 [ext_resource path="res://Assets/Art/BorderWoods.png" type="Texture" id=1]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 20.8709, 14.21 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 28.864, 16.8743 )
 
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 15.6647, 15.098 )
+
 [sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
-extents = Vector2( 28.864, 15.098 )
+extents = Vector2( 21.7091, 24.018 )
 
 [sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
-extents = Vector2( 29.7521, 14.2099 )
+extents = Vector2( 30.6402, 29.1194 )
 
 [sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
-extents = Vector2( 30.6402, 15.9861 )
-
-[sub_resource type="RectangleShape2D" id=7]
-
-custom_solver_bias = 0.0
-extents = Vector2( 31.5284, 11.5455 )
+extents = Vector2( 19.2168, 23.552 )
 
 [node name="TileMap" type="TileMap" index="0"]
 
@@ -72,7 +72,7 @@ bounce = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tree-top-left/StaticBody2D" index="0"]
 
 position = Vector2( 9.76935, 16.8743 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="tree-top-left2" type="Sprite" parent="." index="1"]
 
@@ -96,14 +96,14 @@ bounce = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tree-top-left2/StaticBody2D" index="0"]
 
 position = Vector2( -1.77625, 14.2099 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="tree-top-left3" type="Sprite" parent="." index="2"]
 
 position = Vector2( 184.729, 5.32874 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 64, 0, 64, 64 )
+region_rect = Rect2( 128, 0, 64, 64 )
 _sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="tree-top-left3" index="0"]
@@ -119,15 +119,15 @@ bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tree-top-left3/StaticBody2D" index="0"]
 
-position = Vector2( 0, 11.5456 )
-shape = SubResource( 4 )
+position = Vector2( -16.3278, 13.4952 )
+shape = SubResource( 3 )
 
 [node name="tree-top-left4" type="Sprite" parent="." index="3"]
 
 position = Vector2( 3.55249, 79.0429 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 64, 0, 64, 64 )
+region_rect = Rect2( 0, 64, 64, 64 )
 _sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="tree-top-left4" index="0"]
@@ -143,15 +143,15 @@ bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tree-top-left4/StaticBody2D" index="0"]
 
-position = Vector2( 0.888123, 14.2099 )
-shape = SubResource( 5 )
+position = Vector2( 8.93016, -7.47922 )
+shape = SubResource( 4 )
 
 [node name="tree-top-left5" type="Sprite" parent="." index="4"]
 
 position = Vector2( 93.2529, 83.4835 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 64, 0, 64, 64 )
+region_rect = Rect2( 64, 64, 64, 64 )
 _sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="tree-top-left5" index="0"]
@@ -167,15 +167,15 @@ bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tree-top-left5/StaticBody2D" index="0"]
 
-position = Vector2( 0, 9.76932 )
-shape = SubResource( 6 )
+position = Vector2( -0.731079, -5.09625 )
+shape = SubResource( 5 )
 
 [node name="tree-top-left6" type="Sprite" parent="." index="5"]
 
 position = Vector2( 182.065, 87.036 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 64, 0, 64, 64 )
+region_rect = Rect2( 128, 64, 64, 64 )
 _sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="tree-top-left6" index="0"]
@@ -191,7 +191,7 @@ bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tree-top-left6/StaticBody2D" index="0"]
 
-position = Vector2( -0.888123, 17.7624 )
-shape = SubResource( 7 )
+position = Vector2( -12.0982, -6.8511 )
+shape = SubResource( 6 )
 
 
