@@ -1,4 +1,4 @@
-extends Area2D
+extends KinematicBody2D
 
 export (float) var aggro_range = 100.0
 export (float) var approach_speed = 1.0
@@ -29,14 +29,15 @@ func _process(delta):
 
 func _approach(delta):
 	var vec = target.global_position - global_position
-	global_position += vec.normalized() * approach_speed * delta
+	if move_and_collide(vec.normalized() * approach_speed * delta):
+		state = ATTACKING
 
 func _attack(delta):
 	pass
 
 func _retreat(delta):
 	var vec = global_position - target.global_position
-	global_position += vec.normalized() * retreat_speed * delta
+	move_and_collide(vec.normalized() * retreat_speed * delta)
 
 func _on_Aggro_body_entered(body):
 	state = AGGRO
@@ -45,15 +46,3 @@ func _on_Aggro_body_entered(body):
 func _on_Aggro_body_exited(body):
 	state = IDLE
 	target = null
-
-func _on_Monster_area_entered(area):
-	state = REVEALED
-
-func _on_Monster_area_exited(area):
-	state = AGGRO
-
-func _on_Monster_body_entered(body):
-	state = ATTACKING
-
-func _on_Monster_body_exited(body):
-	state = AGGRO

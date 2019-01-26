@@ -24,24 +24,19 @@ extents = Vector2( 16, 16 )
 
 closed = false
 cull_mode = 1
-polygon = PoolVector2Array( 0.282959, -16.0253, 11, -11, 16, 0, 11, 11, 0, 16, -11, 11, -15.9141, 0.189045, -16, 0, -11.3839, -11.8073, -0.0192566, -15.9161 )
+polygon = PoolVector2Array( 0, -16, 11, -11, 16, 0, 11, 11, 0, 16, -11, 11, -16, 0, -11, -11, 0, -16 )
 
 [sub_resource type="CircleShape2D" id=4]
 
 custom_solver_bias = 0.0
 radius = 64.0
 
-[node name="Monster" type="Area2D"]
+[node name="Monster" type="KinematicBody2D" index="0"]
 
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
+input_pickable = false
 collision_layer = 8
 collision_mask = 17
-audio_bus_override = false
-audio_bus_name = "Master"
+collision/safe_margin = 0.08
 script = ExtResource( 1 )
 aggro_range = 100.0
 approach_speed = 1.0
@@ -75,13 +70,5 @@ audio_bus_name = "Master"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Aggro" index="0"]
 
 shape = SubResource( 4 )
-
-[connection signal="area_entered" from="." to="." method="_on_Monster_area_entered"]
-
-[connection signal="area_exited" from="." to="." method="_on_Monster_area_exited"]
-
-[connection signal="body_entered" from="." to="." method="_on_Monster_body_entered"]
-
-[connection signal="body_exited" from="." to="." method="_on_Monster_body_exited"]
 
 
