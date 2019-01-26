@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Assets/Tiles/tileset.tres" type="TileSet" id=1]
-[ext_resource path="res://Assets/Art/Homebackground.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Art/ground.tres" type="TileSet" id=2]
+[ext_resource path="res://Assets/Art/Homebackground.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=4]
 
 [sub_resource type="SegmentShape2D" id=1]
 
@@ -64,7 +65,7 @@ custom_solver_bias = 0.0
 a = Vector2( 0, 13 )
 b = Vector2( 0, -3 )
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=11]
 
 custom_solver_bias = 0.0
 extents = Vector2( 1.36216, 10 )
@@ -75,18 +76,18 @@ custom_solver_bias = 0.0
 a = Vector2( -0.129599, -88.4541 )
 b = Vector2( -0.129599, -81.6905 )
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=13]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 0.656006 )
 
-[sub_resource type="SegmentShape2D" id=15]
+[sub_resource type="SegmentShape2D" id=14]
 
 custom_solver_bias = 0.0
 a = Vector2( 0, 5 )
 b = Vector2( 0, 10 )
 
-[sub_resource type="RectangleShape2D" id=16]
+[sub_resource type="RectangleShape2D" id=15]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
@@ -138,10 +139,31 @@ format = 1
 tile_data = PoolIntArray( -983050, 10, 0, -917520, 0, 0, -917514, 0, 0, -524294, 10, 0, -458758, 10, 0, -393222, 10, 0, -327686, 10, 0, -262150, 10, 0, -196614, 10, 0, -131078, 10, 0, -65542, 10, 0, -6, 10, 0, 65530, 10, 0, 131066, 10, 0, 196602, 10, 0 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Home" type="Sprite" parent="." index="2"]
+[node name="Terrain" type="TileMap" parent="." index="2"]
 
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -1245207, 6, 0, -1245206, 16, 0, -1245205, 16, 0, -1245204, 16, 0, -1245203, 16, 0, -1245202, 16, 0, -1245201, 16, 0, -1245200, 16, 0, -1245199, 16, 0, -1245198, 16, 0, -1245197, 16, 0, -1245196, 16, 0, -1245195, 16, 0, -1245194, 16, 0, -1245193, 16, 0, -1245192, 16, 0, -1245191, 16, 0, -1245190, 16, 0, -1245189, 16, 0, -1245188, 16, 0, -1245187, 16, 0, -1245186, 16, 0, -1245185, 16, 0, -1310720, 16, 0, -1310719, 16, 0, -1310718, 16, 0, -1310717, 16, 0, -1310716, 16, 0, -1310715, 16, 0, -1310714, 16, 0, -1310713, 16, 0, -1310712, 16, 0, -1310711, 16, 0, -1310710, 16, 0, -1310709, 16, 0, -1310708, 16, 0, -1310707, 16, 0, -1310706, 16, 0, -1310705, 16, 0, -1310704, 16, 0, -1310703, 16, 0, -1310702, 16, 0, -1310701, 16, 0, -1310700, 16, 0, -1310699, 16, 0, -1310698, 16, 0, -1310697, 16, 0, -1310696, 16, 0, -1310695, 16, 0, -1310694, 16, 0, -1310693, 16, 0, -1310692, 16, 0, -1310691, 11, 0, -1179671, 12, 0, -1245155, 10, 0, -1114135, 12, 0, -1179619, 10, 0, -1048599, 12, 0, -1114083, 10, 0, -983063, 12, 0, -1048547, 10, 0, -917527, 12, 0, -983011, 10, 0, -851991, 12, 0, -917475, 10, 0, -786455, 12, 0, -851939, 10, 0, -720919, 12, 0, -786403, 10, 0, -655383, 12, 0, -720867, 10, 0, -589847, 12, 0, -655331, 10, 0, -524311, 12, 0, -589795, 10, 0, -458775, 12, 0, -524259, 10, 0, -393239, 12, 0, -458723, 10, 0, -327703, 12, 0, -393187, 10, 0, -262167, 12, 0, -327651, 10, 0, -196631, 12, 0, -196613, 12, 0, -262115, 10, 0, -131095, 12, 0, -196579, 10, 0, -65559, 12, 0, -65541, 7, 0, -65539, 5, 0, -131043, 10, 0, -23, 12, 0, -65507, 10, 0, 65513, 12, 0, 65533, 10, 0, 29, 10, 0, 131049, 12, 0, 65565, 10, 0, 196585, 12, 0, 131101, 10, 0, 262121, 12, 0, 196637, 10, 0, 327657, 12, 0, 262173, 10, 0, 393193, 12, 0, 327709, 10, 0, 458729, 12, 0, 393245, 10, 0, 524265, 12, 0, 458781, 10, 0, 589801, 12, 0, 524317, 10, 0, 655337, 12, 0, 589853, 10, 0, 720873, 12, 0, 655389, 10, 0, 786409, 12, 0, 720925, 10, 0, 851945, 12, 0, 786461, 10, 0, 917481, 12, 0, 851997, 10, 0, 983017, 12, 0, 917533, 10, 0, 1048553, 12, 0, 983069, 10, 0, 1114089, 12, 0, 1048605, 10, 0, 1179625, 12, 0, 1114141, 10, 0, 1245161, 12, 0, 1179677, 10, 0, 1310697, 12, 0, 1245213, 10, 0, 1376233, 12, 0, 1310749, 10, 0, 1441769, 12, 0, 1376285, 10, 0, 1507305, 12, 0, 1441821, 10, 0, 1572841, 12, 0, 1507357, 10, 0, 1638377, 11, 0, 1638378, 1, 0, 1638379, 1, 0, 1638380, 1, 0, 1638381, 1, 0, 1638382, 1, 0, 1638383, 1, 0, 1638384, 1, 0, 1638385, 1, 0, 1638386, 1, 0, 1638387, 1, 0, 1638388, 1, 0, 1638389, 1, 0, 1638390, 1, 0, 1638391, 1, 0, 1638392, 1, 0, 1638393, 1, 0, 1638394, 1, 0, 1638395, 1, 0, 1638396, 1, 0, 1638397, 1, 0, 1638398, 1, 0, 1638399, 1, 0, 1572864, 1, 0, 1572865, 1, 0, 1572866, 1, 0, 1572867, 1, 0, 1572868, 1, 0, 1572869, 1, 0, 1572870, 1, 0, 1572871, 1, 0, 1572872, 1, 0, 1572873, 1, 0, 1572874, 1, 0, 1572875, 1, 0, 1572876, 1, 0, 1572877, 1, 0, 1572878, 1, 0, 1572879, 1, 0, 1572880, 1, 0, 1572881, 1, 0, 1572882, 1, 0, 1572883, 1, 0, 1572884, 1, 0, 1572885, 1, 0, 1572886, 1, 0, 1572887, 1, 0, 1572888, 1, 0, 1572889, 1, 0, 1572890, 1, 0, 1572891, 1, 0, 1572892, 1, 0, 1572893, 11, 0 )
+
+[node name="Home" type="Sprite" parent="." index="3"]
+
+editor/display_folded = true
 position = Vector2( -11.194, -420.656 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="Walls" type="StaticBody2D" parent="Home" index="0"]
 
@@ -210,14 +232,14 @@ shape = SubResource( 9 )
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="Home/Walls" index="9"]
 
 position = Vector2( 121.194, 160.656 )
-scale = Vector2( 23.3333, 0 )
+scale = Vector2( 23.3333, 1e-05 )
 shape = SubResource( 10 )
 
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="Home/Walls" index="10"]
 
 position = Vector2( -91.7226, 128.781 )
 scale = Vector2( 45.1802, 3.22115 )
-shape = SubResource( 13 )
+shape = SubResource( 11 )
 
 [node name="CollisionShape2D12" type="CollisionShape2D" parent="Home/Walls" index="11"]
 
@@ -229,21 +251,21 @@ shape = SubResource( 12 )
 
 position = Vector2( 41.194, -132.844 )
 scale = Vector2( 10.7692, 37.3358 )
-shape = SubResource( 14 )
+shape = SubResource( 13 )
 
 [node name="CollisionShape2D14" type="CollisionShape2D" parent="Home/Walls" index="13"]
 
 position = Vector2( -133.806, -163.094 )
 scale = Vector2( 11.6667, 8.75 )
-shape = SubResource( 15 )
+shape = SubResource( 14 )
 
 [node name="CollisionShape2D15" type="CollisionShape2D" parent="Home/Walls" index="14"]
 
 position = Vector2( -118.806, -129.344 )
 scale = Vector2( 3.84615, 0.76923 )
-shape = SubResource( 16 )
+shape = SubResource( 15 )
 
-[node name="Player" parent="." index="3" instance=ExtResource( 3 )]
+[node name="Player" parent="." index="4" instance=ExtResource( 4 )]
 
 position = Vector2( -180, -180 )
 

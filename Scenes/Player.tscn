@@ -16,7 +16,7 @@ extents = Vector2( 15.4059, 15.1042 )
 custom_solver_bias = 0.0
 points = PoolVector2Array( 8, 0, 360, -80, 360, 80 )
 
-[node name="Player" type="KinematicBody2D" index="0" groups=[
+[node name="Player" type="KinematicBody2D" groups=[
 "player",
 ]]
 
@@ -80,7 +80,7 @@ current = true
 zoom = Vector2( 0.5, 0.5 )
 limit_left = -1600
 limit_top = -1280
-limit_right = 1600
+limit_right = 1850
 limit_bottom = 1600
 limit_smoothed = true
 drag_margin_h_enabled = true

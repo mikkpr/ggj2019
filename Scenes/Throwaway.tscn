@@ -1,0 +1,427 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Assets/Art/Tileset.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 5.5587, 6.14619 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 31.9932, 10 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 6.32005, 10 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 9.82706, 30.5996 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 30.4302, 31.0723 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 9.82706, 31.374 )
+
+[sub_resource type="RectangleShape2D" id=7]
+
+custom_solver_bias = 0.0
+extents = Vector2( 9.82706, 30.365 )
+
+[sub_resource type="RectangleShape2D" id=8]
+
+custom_solver_bias = 0.0
+extents = Vector2( 31.2305, 31.1732 )
+
+[sub_resource type="RectangleShape2D" id=9]
+
+custom_solver_bias = 0.0
+extents = Vector2( 7.91789, 30.7137 )
+
+[sub_resource type="RectangleShape2D" id=10]
+
+custom_solver_bias = 0.0
+extents = Vector2( 5.36822, 4.69769 )
+
+[sub_resource type="RectangleShape2D" id=11]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32.4247, 6.97371 )
+
+[node name="TileMap" type="TileMap"]
+
+mode = 0
+tile_set = null
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
+
+[node name="rock-bottom-right" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 64, 64 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Visibility" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="rock-bottom-right" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision", "Pickable", "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rock-bottom-right/StaticBody2D" index="0"]
+
+position = Vector2( 24.7727, 22.1042 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="rock-center-bottom" type="Sprite" parent="." index="1"]
+
+position = Vector2( 83.0663, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 0, 64, 64 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Visibility" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="rock-center-bottom" index="0"]
+
+position = Vector2( 225.466, -1.85417 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rock-center-bottom/StaticBody2D" index="0"]
+
+position = Vector2( -225.399, 22.5286 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="rock-bottom-left2" type="Sprite" parent="." index="2"]
+
+position = Vector2( 162.795, -0.741669 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 128, 0, 64, 64 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Visibility" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="rock-bottom-left2" index="0"]
+
+position = Vector2( -0.741638, -1.11248 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rock-bottom-left2/StaticBody2D" index="0"]
+
+position = Vector2( -24.6722, 19.8442 )
+shape = SubResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="few-rock-5" type="Sprite" parent="." index="3"]
+
+position = Vector2( 239.186, -2.59583 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 192, 0, 64, 64 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Visibility" ]
+
+[node name="no-rock3" type="Sprite" parent="." index="4"]
+
+position = Vector2( 321.918, 0.526543 )
+scale = Vector2( 1.02206, 1.02804 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 256, 0, 64, 64 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Visibility" ]
+
+[node name="rock-center-right" type="Sprite" parent="." index="5"]
+
+position = Vector2( -0.37088, 76.7621 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 64, 64 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Visibility" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="rock-center-right" index="0"]
+
+position = Vector2( 74.1663, 1.48332 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rock-center-right/StaticBody2D" index="0"]
+
+position = Vector2( -53.0289, -1.24881 )
+shape = SubResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="rock-full2" type="Sprite" parent="." index="6"]
+
+position = Vector2( 80.0996, 78.9871 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 64, 64, 64 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Visibility" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="rock-full2" index="0"]
+
+position = Vector2( 0.37085, 0.370819 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rock-full2/StaticBody2D" index="0"]
+
+position = Vector2( -0.185363, -0.025048 )
+shape = SubResource( 5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="rock-left-center" type="Sprite" parent="." index="7"]
+
+position = Vector2( 162.053, 76.0205 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 128, 64, 64, 64 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Visibility" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="rock-left-center" index="0"]
+
+position = Vector2( 247.715, -12.9791 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rock-left-center/StaticBody2D" index="0"]
+
+position = Vector2( -269.544, 13.1766 )
+shape = SubResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="puddle-min" type="Sprite" parent="." index="8"]
+
+position = Vector2( 236.22, 81.5829 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 192, 64, 64, 64 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Visibility" ]
+
+[node name="puddle-max" type="Sprite" parent="." index="9"]
+
+position = Vector2( 311.869, 79.7288 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 256, 64, 64, 64 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Visibility" ]
+
+[node name="rock-right" type="Sprite" parent="." index="10"]
+
+position = Vector2( -4.44998, 155.378 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 128, 64, 64 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Visibility" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="rock-right" index="0"]
+
+position = Vector2( 0, 1.48332 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rock-right/StaticBody2D" index="0"]
+
+position = Vector2( 20.6601, -2.36015 )
+shape = SubResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="rock-full" type="Sprite" parent="." index="11"]
+
+position = Vector2( 77.133, 156.862 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 128, 64, 64 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Visibility" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="rock-full" index="0"]
+
+position = Vector2( -0.741638, -0.370804 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rock-full/StaticBody2D" index="0"]
+
+position = Vector2( 0.818237, 0.195694 )
+shape = SubResource( 8 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="rock-left" type="Sprite" parent="." index="12"]
+
+position = Vector2( 157.233, 157.233 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 128, 128, 64, 64 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Visibility" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="rock-left" index="0"]
+
+position = Vector2( -0.370789, -1.11247 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rock-left/StaticBody2D" index="0"]
+
+position = Vector2( -23.2317, 1.13972 )
+shape = SubResource( 9 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="no-rock2" type="Sprite" parent="." index="13"]
+
+position = Vector2( 235.849, 157.974 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 192, 128, 64, 64 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Visibility" ]
+
+[node name="few-rock3" type="Sprite" parent="." index="14"]
+
+position = Vector2( 304.082, 157.603 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 256, 128, 64, 64 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Visibility" ]
+
+[node name="rock-top-right" type="Sprite" parent="." index="15"]
+
+position = Vector2( -7.41663, 241.411 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 192, 64, 64 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Visibility" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="rock-top-right" index="0"]
+
+position = Vector2( 3.33749, -0.370834 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rock-top-right/StaticBody2D" index="0"]
+
+position = Vector2( 18.3435, -24.2592 )
+shape = SubResource( 10 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="rock-center-top" type="Sprite" parent="." index="16"]
+
+position = Vector2( 74.5372, 242.895 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 192, 64, 64 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Visibility" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="rock-center-top" index="0"]
+
+position = Vector2( -0.370819, 0.370789 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rock-center-top/StaticBody2D" index="0"]
+
+position = Vector2( 0.14829, -23.682 )
+shape = SubResource( 11 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="few-rock2" type="Sprite" parent="." index="17"]
+
+position = Vector2( 151.67, 243.636 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 128, 192, 64, 64 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Visibility" ]
+
+[node name="few-rock" type="Sprite" parent="." index="18"]
+
+position = Vector2( 231.028, 239.186 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 192, 192, 64, 64 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Visibility" ]
+
+[node name="no-rock" type="Sprite" parent="." index="19"]
+
+position = Vector2( 305.194, 243.266 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 256, 192, 64, 64 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Visibility" ]
+
+
