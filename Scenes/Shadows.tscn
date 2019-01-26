@@ -1,80 +1,28 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Assets/bg.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Monster.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Obstacle.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/BraveryBar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/BraveryBar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/bg.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Monster.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Obstacle.tscn" type="PackedScene" id=6]
 
 [node name="Root" type="Node" index="0"]
 
+pause_mode = 2
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
 __meta__ = {
 "_edit_horizontal_guides_": [ 768.498 ],
 "_edit_vertical_guides_": [ 1232.22, 0.757141 ]
 }
 
-[node name="Background" type="Sprite" parent="." index="0"]
+[node name="Node" type="Node" parent="." index="0"]
 
-position = Vector2( 515.454, 391.33 )
-scale = Vector2( 17.1297, 13.1636 )
-texture = ExtResource( 1 )
-_sections_unfolded = [ "Material", "Visibility" ]
+pause_mode = 1
+_sections_unfolded = [ "Pause" ]
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." index="1"]
-
-color = Color( 0.0546875, 0.0527048, 0.0316162, 1 )
-_sections_unfolded = [ "Z Index" ]
-
-[node name="Player" parent="." index="2" instance=ExtResource( 2 )]
-
-position = Vector2( 605, 345 )
-
-[node name="Monster" parent="." index="3" instance=ExtResource( 3 )]
-
-position = Vector2( 651.648, 323.453 )
-animation = "placeholder"
-aggro_range = 300.0
-approach_speed = 150.0
-retreat_speed = 200.0
-
-[node name="Shadowcasters" type="Node2D" parent="." index="4"]
-
-[node name="Caster2" parent="Shadowcasters" index="0" instance=ExtResource( 4 )]
-
-position = Vector2( 755.695, 239.213 )
-
-[node name="Caster5" parent="Shadowcasters" index="1" instance=ExtResource( 4 )]
-
-position = Vector2( -330, 400 )
-scale = Vector2( 20.6318, 40.7869 )
-
-[node name="Caster6" parent="Shadowcasters" index="2" instance=ExtResource( 4 )]
-
-position = Vector2( 1515.99, 392.292 )
-rotation = -3.14159
-scale = Vector2( 17.8164, 40.7869 )
-
-[node name="Caster7" parent="Shadowcasters" index="3" instance=ExtResource( 4 )]
-
-position = Vector2( 627.967, -333.144 )
-rotation = 1.5708
-scale = Vector2( 20.3427, 62.9551 )
-
-[node name="Caster8" parent="Shadowcasters" index="4" instance=ExtResource( 4 )]
-
-position = Vector2( 632.637, 1039.9 )
-rotation = -1.56844
-scale = Vector2( 16.9556, 62.9551 )
-
-[node name="Caster3" parent="Shadowcasters" index="5" instance=ExtResource( 4 )]
-
-position = Vector2( 697.622, 445.774 )
-
-[node name="Caster4" parent="Shadowcasters" index="6" instance=ExtResource( 4 )]
-
-position = Vector2( 874.779, 401.669 )
-
-[node name="UILayer" type="CanvasLayer" parent="." index="5"]
+[node name="UILayer" type="CanvasLayer" parent="Node" index="0"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -82,11 +30,68 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="BraveryBar" parent="UILayer" index="0" instance=ExtResource( 5 )]
+[node name="BraveryBar" parent="Node/UILayer" index="0" instance=ExtResource( 2 )]
 
 light_mask = 0
 position = Vector2( 600, 20 )
 scale = Vector2( 2.0625, 1 )
 _sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="Background" type="Sprite" parent="Node" index="1"]
+
+position = Vector2( 515.454, 391.33 )
+scale = Vector2( 17.1297, 13.1636 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Node" index="2"]
+
+color = Color( 0.0546875, 0.0527048, 0.0316162, 1 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="Player" parent="Node" index="3" instance=ExtResource( 4 )]
+
+position = Vector2( 605, 345 )
+
+[node name="Monster" parent="Node" index="4" instance=ExtResource( 5 )]
+
+position = Vector2( 651.648, 323.453 )
+
+[node name="Shadowcasters" type="Node2D" parent="Node" index="5"]
+
+[node name="Caster2" parent="Node/Shadowcasters" index="0" instance=ExtResource( 6 )]
+
+position = Vector2( 755.695, 239.213 )
+
+[node name="Caster5" parent="Node/Shadowcasters" index="1" instance=ExtResource( 6 )]
+
+position = Vector2( -330, 400 )
+scale = Vector2( 20.6318, 40.7869 )
+
+[node name="Caster6" parent="Node/Shadowcasters" index="2" instance=ExtResource( 6 )]
+
+position = Vector2( 1515.99, 392.292 )
+rotation = -3.14159
+scale = Vector2( 17.8164, 40.7869 )
+
+[node name="Caster7" parent="Node/Shadowcasters" index="3" instance=ExtResource( 6 )]
+
+position = Vector2( 627.967, -333.144 )
+rotation = 1.5708
+scale = Vector2( 20.3427, 62.9551 )
+
+[node name="Caster8" parent="Node/Shadowcasters" index="4" instance=ExtResource( 6 )]
+
+position = Vector2( 632.637, 1039.9 )
+rotation = -1.56844
+scale = Vector2( 16.9556, 62.9551 )
+
+[node name="Caster3" parent="Node/Shadowcasters" index="5" instance=ExtResource( 6 )]
+
+position = Vector2( 697.622, 445.774 )
+
+[node name="Caster4" parent="Node/Shadowcasters" index="6" instance=ExtResource( 6 )]
+
+position = Vector2( 874.779, 401.669 )
 
 
