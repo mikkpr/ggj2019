@@ -18,16 +18,16 @@ func _physics_process(delta):
 
 	move_and_slide(motion)
 	
-	print("X: " + str(position.x) + "; Y: " + str(position.y))
+	#print("X: " + str(position.x) + "; Y: " + str(position.y))
 	
-	if position.x > 670:
-		position.x = -635
-	if position.x < -635:
-		position.x = 670
-	if position.y > 290:
-		position.y = -560
-	if position.y < -560:
-		position.y = 290
+	#if position.x > 670:
+	#	position.x = -635
+	#if position.x < -635:
+	#	position.x = 670
+	#if position.y > 290:
+#		position.y = -560
+#	if position.y < -560:
+#		position.y = 290
 	
 
 	
