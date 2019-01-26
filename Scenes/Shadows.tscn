@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/BraveryBar.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/bg.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Monster.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Monster.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/BraveryBar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/bg.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Obstacle.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Goal.tscn" type="PackedScene" id=7]
 
@@ -17,6 +17,7 @@ __meta__ = {
 "_edit_horizontal_guides_": [ 768.498 ],
 "_edit_vertical_guides_": [ 1232.22, 0.757141 ]
 }
+monster = ExtResource( 2 )
 
 [node name="Node" type="Node" parent="." index="0"]
 
@@ -32,7 +33,7 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="BraveryBar" parent="Node/UILayer" index="0" instance=ExtResource( 2 )]
+[node name="BraveryBar" parent="Node/UILayer" index="0" instance=ExtResource( 3 )]
 
 light_mask = 0
 position = Vector2( 600, 20 )
@@ -43,7 +44,7 @@ _sections_unfolded = [ "Material", "Visibility" ]
 
 position = Vector2( 515.454, 391.33 )
 scale = Vector2( 17.1297, 13.1636 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 _sections_unfolded = [ "Material", "Visibility" ]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Node" index="2"]
@@ -51,19 +52,11 @@ _sections_unfolded = [ "Material", "Visibility" ]
 color = Color( 0.0546875, 0.0527048, 0.0316162, 1 )
 _sections_unfolded = [ "Z Index" ]
 
-[node name="Player" parent="Node" index="3" instance=ExtResource( 4 )]
+[node name="Player" parent="Node" index="3" instance=ExtResource( 5 )]
 
 position = Vector2( 605, 345 )
 
-[node name="Monsters" type="Node" parent="Node" index="4"]
-
-editor/display_folded = true
-
-[node name="Monster" parent="Node/Monsters" index="0" instance=ExtResource( 5 )]
-
-position = Vector2( 651.648, 323.453 )
-
-[node name="Obstacles" type="Node2D" parent="Node" index="5"]
+[node name="Obstacles" type="Node2D" parent="Node" index="4"]
 
 [node name="Obstacle" parent="Node/Obstacles" index="0" instance=ExtResource( 6 )]
 
@@ -100,11 +93,9 @@ position = Vector2( 697.622, 445.774 )
 
 position = Vector2( 874.779, 401.669 )
 
-[node name="Goal" parent="Node" index="6" instance=ExtResource( 7 )]
+[node name="Goal" parent="Node" index="5" instance=ExtResource( 7 )]
 
 position = Vector2( 1210, 20 )
-
-[connection signal="induce_fear" from="Node/Monsters/Monster" to="." method="_on_Monster_induce_fear"]
 
 [connection signal="body_entered" from="Node/Goal" to="Node/Goal" method="_on_Goal_body_entered"]
 
