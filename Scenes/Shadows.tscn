@@ -94,4 +94,6 @@ position = Vector2( 697.622, 445.774 )
 
 position = Vector2( 874.779, 401.669 )
 
+[connection signal="induce_fear" from="Node/Monster" to="." method="_on_Monster_induce_fear"]
+
 

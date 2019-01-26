@@ -15,6 +15,8 @@ enum states {
 var state = IDLE
 var target = null # Who are we attacking?
 
+signal induce_fear
+
 func _ready():
 	_set_state(IDLE)
 	$Aggro/CollisionShape2D.shape.radius = aggro_range
@@ -47,7 +49,7 @@ func _on_Aggro_body_exited(body):
 
 func _on_AnimatedSprite_animation_finished():
 	if state == ATTACKING:
-		# TODO: Damage bravery if still in range.
+		emit_signal('induce_fear')
 		_set_state(AGGRO)
 
 func _set_state(s):
