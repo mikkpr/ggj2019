@@ -14,7 +14,7 @@ extents = Vector2( 15.4059, 15.1042 )
 [sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
-points = PoolVector2Array( 8, 0, 360, -150, 360, 150 )
+points = PoolVector2Array( 8, 0, 360, -80, 360, 80 )
 
 [node name="Player" type="KinematicBody2D" index="0" groups=[
 "player",
