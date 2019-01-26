@@ -20,14 +20,14 @@ func _physics_process(delta):
 	
 	print("X: " + str(position.x) + "; Y: " + str(position.y))
 	
-	if position.x > 655:
+	if position.x > 670:
 		position.x = -635
 	if position.x < -635:
-		position.x = 655
-	if position.y > 380:
-		position.y = -460
-	if position.y < -460:
-		position.y = 380
+		position.x = 670
+	if position.y > 290:
+		position.y = -560
+	if position.y < -560:
+		position.y = 290
 	
 
 	
