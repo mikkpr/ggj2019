@@ -1,14 +1,15 @@
 extends KinematicBody2D
 
-export (String) var animation = "placeholder"
-var attack_animation = animation + "_attack"
-
 export (float) var aggro_range = 300.0
 export (float) var despawn_range = 1000.0
 export (float) var approach_speed = 150.0
 export (float) var retreat_speed = 200.0
 
 signal induce_fear
+
+var monsters = ["placeholder"]
+var animation = monsters[randi() % monsters.size()]
+var attack_animation = animation + "_attack"
 
 var aggro = false
 var revealed = false
