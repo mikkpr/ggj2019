@@ -1,10 +1,25 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Light.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/lightsector2.png" type="Texture" id=3]
 [ext_resource path="res://Assets/light.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Art/Char1walkfront.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Art/Character_back0.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Art/Character_front0.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Art/Character_back1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Art/Character_back2.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Art/Character_back3.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Art/Character_back4.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Art/Character_side0.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Art/Character_side1.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Art/Character_side2.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Art/Character_side3.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Art/Character_side4.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Art/Character_side5.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Art/Character_front1.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Art/Character_front2.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Art/Character_front3.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Art/Character_front4.png" type="Texture" id=20]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -15,6 +30,40 @@ extents = Vector2( 15.4059, 15.1042 )
 
 custom_solver_bias = 0.0
 points = PoolVector2Array( 8, 0, 360, -80, 360, 80 )
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "idle_back",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "idle_front",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "walk_back",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "idle_side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "walk_side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "walk_front",
+"speed": 5.0
+} ]
 
 [node name="Player" type="KinematicBody2D" groups=[
 "player",
@@ -65,11 +114,10 @@ _sections_unfolded = [ "Collision" ]
 
 shape = SubResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="." index="2"]
+[node name="Sprite" type="AnimatedSprite" parent="." index="2"]
 
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 32, 32 )
+frames = SubResource( 3 )
+animation = "walk_front"
 _sections_unfolded = [ "Region", "Transform" ]
 
 [node name="Camera" type="Camera2D" parent="." index="3"]
