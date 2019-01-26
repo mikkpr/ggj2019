@@ -1,7 +1,7 @@
 extends Light2D
 
 func _ready():
-	pass
-	
+    pass
+    
 func set_angle(angle):
-	pass
+    pass
