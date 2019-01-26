@@ -1,10 +1,14 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/Monster.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Art/whitewhale_0.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Art/whitewhale_1.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Art/whitewhale_2.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Art/whitewhale_3.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Art/whitewhale_container0.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Art/whitewhale_container1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Art/whitewhale_container2.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Art/whitewhale_container3.png" type="Texture" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -12,6 +16,11 @@ animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "placeholder",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": false,
+"name": "placeholder_attack",
 "speed": 5.0
 } ]
 
@@ -31,16 +40,17 @@ polygon = PoolVector2Array( 0, -16, 11, -11, 16, 0, 11, 11, 0, 16, -11, 11, -16,
 custom_solver_bias = 0.0
 radius = 64.0
 
-[node name="Monster" type="KinematicBody2D" index="0"]
+[node name="Monster" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 8
-collision_mask = 17
+collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-aggro_range = 100.0
-approach_speed = 1.0
-retreat_speed = 1.0
+animation = "placeholder"
+aggro_range = 300.0
+approach_speed = 150.0
+retreat_speed = 200.0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
@@ -70,5 +80,11 @@ audio_bus_name = "Master"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Aggro" index="0"]
 
 shape = SubResource( 4 )
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+
+[connection signal="body_entered" from="Aggro" to="." method="_on_Aggro_body_entered"]
+
+[connection signal="body_exited" from="Aggro" to="." method="_on_Aggro_body_exited"]
 
 
