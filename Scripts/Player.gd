@@ -45,7 +45,7 @@ func get_input():
 	velocity = velocity.normalized() * speed
 
 func _on_Flashlight_body_entered(body):
-	body.reveal()
+	body.detect(self)
 
 func _on_Flashlight_body_exited(body):
 	body.conceal()

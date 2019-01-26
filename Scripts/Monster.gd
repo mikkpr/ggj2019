@@ -1,78 +1,71 @@
 extends KinematicBody2D
 
 export (String) var animation = "placeholder"
+var attack_animation = animation + "_attack"
 
 export (float) var aggro_range = 300.0
 export (float) var approach_speed = 150.0
 export (float) var retreat_speed = 200.0
 
-enum states {
-	IDLE,
-	AGGRO,
-	ATTACKING, # Monster has reached the target.
-	REVEALED
-}
-var state = IDLE
-var target = null # Who are we attacking?
-
 signal induce_fear
 
-func reveal():
-	_set_state(REVEALED)
+var aggro = false
+var revealed = false
+var attacking = false
+var target = null # Who are we attacking or retreating from?
+
+func detect(player):
+	revealed = true
+	target = player
 
 func conceal():
-	_set_state(IDLE)
-	_check_aggro()
+	revealed = false
 
 func _ready():
+	$AnimatedSprite.animation = animation
 	$Aggro/CollisionShape2D.shape.radius = aggro_range
-	if state != REVEALED: # Can be set by Player._ready.
-		conceal()
-
-func _check_aggro():
 	var bodies = $Aggro.get_overlapping_bodies()
 	if len(bodies) > 0:
 		_on_Aggro_body_entered(bodies[0])
 
 func _process(delta):
-	if state == AGGRO:
-		_approach(delta)
-	elif state == REVEALED:
+	if revealed:
+		attacking = false
 		_retreat(delta)
+	elif attacking:
+		pass # Wait for animation to end.
+	elif aggro:
+		_approach(delta)
+	elif $AnimatedSprite.playing:
+		$AnimatedSprite.stop() # idle
 
 func _approach(delta):
-	var vec = target.global_position - global_position
-	if move_and_collide(vec.normalized() * approach_speed * delta):
-		_set_state(ATTACKING)
+	_moving_animation()
+	if move_and_collide(_vec_to_target() * approach_speed * delta):
+		attacking = true
+		$AnimatedSprite.play(attack_animation)
 
 func _retreat(delta):
-	var vec = global_position - target.global_position
-	move_and_collide(vec.normalized() * retreat_speed * delta)
+	_moving_animation()
+	move_and_collide(-_vec_to_target() * retreat_speed * delta)
+	# TODO: despawn if out of map.
+
+func _moving_animation():
+	if $AnimatedSprite.animation != animation or !$AnimatedSprite.playing:
+		$AnimatedSprite.play(animation)
 
 func _on_Aggro_body_entered(body):
+	aggro = true
 	target = body
-	_set_state(AGGRO)
 
 func _on_Aggro_body_exited(body):
-	if state != REVEALED: # Keep retreating outside of aggro.
-		_set_state(IDLE)
+	aggro = false
 
 func _on_AnimatedSprite_animation_finished():
-	if state == ATTACKING:
-		emit_signal('induce_fear')
-		_set_state(AGGRO)
+	if attacking: # Attack animation finished.
+		attacking = false
+		if test_move(transform, _vec_to_target()):
+			emit_signal('induce_fear') # Still in range.
 
-func _set_state(s):
-	if state == s:
-		return
-	state = s
-	if state == IDLE:
-		$AnimatedSprite.stop()
-		$AnimatedSprite.animation = animation
-		$AnimatedSprite.frame = 0
-	elif state == AGGRO:
-		$AnimatedSprite.play(animation)
-	elif state == ATTACKING:
-		$AnimatedSprite.play(animation + "_attack")
-	elif state == REVEALED:
-		$AnimatedSprite.play(animation)
+func _vec_to_target():
+	return (target.global_position - global_position).normalized()
