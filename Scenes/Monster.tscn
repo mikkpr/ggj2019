@@ -27,7 +27,7 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 12, 12 )
+extents = Vector2( 16, 16 )
 
 [sub_resource type="OccluderPolygon2D" id=3]
 

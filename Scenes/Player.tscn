@@ -29,7 +29,7 @@ extents = Vector2( 15.4059, 15.1042 )
 [sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
-points = PoolVector2Array( 8, 0, 360, -80, 360, 80 )
+points = PoolVector2Array( 8, 0, 360, -150, 360, 150 )
 
 [sub_resource type="SpriteFrames" id=3]
 
@@ -128,7 +128,7 @@ current = true
 zoom = Vector2( 0.5, 0.5 )
 limit_left = -1600
 limit_top = -1280
-limit_right = 1850
+limit_right = 1600
 limit_bottom = 1600
 limit_smoothed = true
 drag_margin_h_enabled = true
