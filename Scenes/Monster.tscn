@@ -51,6 +51,7 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 animation = "placeholder"
 aggro_range = 300.0
+despawn_range = 1000.0
 approach_speed = 150.0
 retreat_speed = 200.0
 
