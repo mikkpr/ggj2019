@@ -7,7 +7,7 @@ export (float) var retreat_speed = 200.0
 
 signal induce_fear
 
-var monsters = ["placeholder"]
+var monsters = ["monster1"]
 var animation = monsters[randi() % monsters.size()]
 var attack_animation = animation + "_attack"
 
@@ -49,7 +49,7 @@ func _process(delta):
 func _move(speed):
 	_moving_animation()
 	var vec = _vec_to_target() * speed
-	$AnimatedSprite.flip_h = vec.x > 0
+	$AnimatedSprite.flip_h = vec.x < 0
 	if move_and_collide(vec) and speed > 0:
 		attacking = true
 		$AnimatedSprite.play(attack_animation)
