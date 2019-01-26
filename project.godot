@@ -16,6 +16,7 @@ config/icon="res://icon.png"
 
 [display]
 
+window/size/width=1228
 window/size/height=768
 window/size/resizable=false
 window/dpi/allow_hidpi=true
