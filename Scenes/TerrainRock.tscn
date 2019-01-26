@@ -57,7 +57,7 @@ extents = Vector2( 5.36822, 4.69769 )
 custom_solver_bias = 0.0
 extents = Vector2( 32.4247, 6.97371 )
 
-[node name="TileMap" type="TileMap"]
+[node name="TileMap" type="TileMap" index="0"]
 
 mode = 0
 tile_set = null
@@ -111,7 +111,7 @@ _sections_unfolded = [ "Animation", "Offset", "Region", "Visibility" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="rock-center-bottom" index="0"]
 
-position = Vector2( 225.466, -1.85417 )
+position = Vector2( -3.0663, 0 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -122,7 +122,7 @@ bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="rock-center-bottom/StaticBody2D" index="0"]
 
-position = Vector2( -225.399, 22.5286 )
+position = Vector2( 0, 20 )
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
@@ -161,7 +161,7 @@ _sections_unfolded = [ "Animation", "Offset", "Region", "Visibility" ]
 
 [node name="no-rock3" type="Sprite" parent="." index="4"]
 
-position = Vector2( 321.918, 0.526543 )
+position = Vector2( 310, 0 )
 scale = Vector2( 1.02206, 1.02804 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -178,7 +178,7 @@ _sections_unfolded = [ "Animation", "Offset", "Region", "Visibility" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="rock-center-right" index="0"]
 
-position = Vector2( 74.1663, 1.48332 )
+position = Vector2( 0.37088, 3.2379 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -189,7 +189,7 @@ bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="rock-center-right/StaticBody2D" index="0"]
 
-position = Vector2( -53.0289, -1.24881 )
+position = Vector2( 20, 0 )
 shape = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
@@ -228,7 +228,7 @@ _sections_unfolded = [ "Animation", "Offset", "Region", "Visibility" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="rock-left-center" index="0"]
 
-position = Vector2( 247.715, -12.9791 )
+position = Vector2( -2.05299, 3.9795 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -239,7 +239,7 @@ bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="rock-left-center/StaticBody2D" index="0"]
 
-position = Vector2( -269.544, 13.1766 )
+position = Vector2( -20, 0 )
 shape = SubResource( 6 )
 _sections_unfolded = [ "Transform" ]
 

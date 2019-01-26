@@ -12,47 +12,47 @@ extents = Vector2( 5.5587, 6.14619 )
 custom_solver_bias = 0.0
 extents = Vector2( 31.9932, 10 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=7]
 
 custom_solver_bias = 0.0
 extents = Vector2( 9.82706, 30.365 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=8]
 
 custom_solver_bias = 0.0
 extents = Vector2( 31.2305, 31.1732 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=9]
 
 custom_solver_bias = 0.0
 extents = Vector2( 7.91789, 30.7137 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=10]
 
 custom_solver_bias = 0.0
 extents = Vector2( 5.36822, 4.69769 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=11]
 
 custom_solver_bias = 0.0
 extents = Vector2( 32.4247, 6.97371 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 6.32005, 10 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
 extents = Vector2( 9.82706, 30.5996 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
 extents = Vector2( 30.4302, 31.0723 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
 extents = Vector2( 9.82706, 31.374 )
@@ -85,7 +85,7 @@ extents = Vector2( 9.82706, 31.374 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "shape": SubResource( 2 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, -193.399, 54.5286 )
+"shape_transform": Transform2D( 1, 0, 0, 1, 32, 52 )
 } ]
 2/name = "rock-bottom-left2"
 2/texture = ExtResource( 1 )
@@ -98,7 +98,7 @@ extents = Vector2( 9.82706, 31.374 )
 2/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 8 ),
+"shape": SubResource( 3 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 7.3278, 51.8442 )
 } ]
 3/name = "few-rock-5"
@@ -130,8 +130,8 @@ extents = Vector2( 9.82706, 31.374 )
 5/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 9 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, -21.0289, 30.7512 )
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 52, 32 )
 } ]
 6/name = "rock-full2"
 6/texture = ExtResource( 1 )
@@ -144,7 +144,7 @@ extents = Vector2( 9.82706, 31.374 )
 6/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 10 ),
+"shape": SubResource( 5 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 31.8146, 31.975 )
 } ]
 7/name = "rock-left-center"
@@ -158,8 +158,8 @@ extents = Vector2( 9.82706, 31.374 )
 7/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 11 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, -237.544, 45.1766 )
+"shape": SubResource( 6 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 12, 32 )
 } ]
 8/name = "puddle-min"
 8/texture = ExtResource( 1 )
@@ -190,7 +190,7 @@ extents = Vector2( 9.82706, 31.374 )
 10/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 3 ),
+"shape": SubResource( 7 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 52.6601, 29.6399 )
 } ]
 11/name = "rock-full"
@@ -204,7 +204,7 @@ extents = Vector2( 9.82706, 31.374 )
 11/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 4 ),
+"shape": SubResource( 8 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 32.8182, 32.1957 )
 } ]
 12/name = "rock-left"
@@ -218,8 +218,8 @@ extents = Vector2( 9.82706, 31.374 )
 12/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 5 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 8.76828, 33.1397 )
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 8.7683, 33.1397 )
 } ]
 13/name = "no-rock2"
 13/texture = ExtResource( 1 )
@@ -250,7 +250,7 @@ extents = Vector2( 9.82706, 31.374 )
 15/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 6 ),
+"shape": SubResource( 10 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 50.3435, 7.7408 )
 } ]
 16/name = "rock-center-top"
@@ -264,7 +264,7 @@ extents = Vector2( 9.82706, 31.374 )
 16/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 7 ),
+"shape": SubResource( 11 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 32.1483, 8.318 )
 } ]
 17/name = "few-rock2"
