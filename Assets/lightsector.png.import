@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Char1walkside.png-43c1858f8aace4610da7724c6fc8f109.stex"
+path="res://.import/lightsector.png-78189f7290e133cfa80a1c3fc5315dc5.stex"
 
 [deps]
 
-source_file="res://Assets/Art/Char1walkside.png"
-dest_files=[ "res://.import/Char1walkside.png-43c1858f8aace4610da7724c6fc8f109.stex" ]
+source_file="res://Assets/lightsector.png"
+dest_files=[ "res://.import/lightsector.png-78189f7290e133cfa80a1c3fc5315dc5.stex" ]
 
 [params]
 
