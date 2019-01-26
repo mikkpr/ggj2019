@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Light.tscn" type="PackedScene" id=2]
@@ -10,6 +10,12 @@
 
 custom_solver_bias = 0.0
 extents = Vector2( 15.4059, 15.1042 )
+
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( 8, 0, 360, -150, 360, 150 )
 
 [node name="Player" type="KinematicBody2D" index="0"]
 
@@ -40,6 +46,23 @@ texture = ExtResource( 4 )
 texture_scale = 0.15
 energy = 0.9
 mode = 0
+
+[node name="Area2D" type="Area2D" parent="Lightpivot" index="2"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 16
+collision_mask = 8
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lightpivot/Area2D" index="0"]
+
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="." index="2"]
 
@@ -73,5 +96,9 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 _sections_unfolded = [ "Drag Margin", "Limit" ]
+
+[connection signal="body_entered" from="Lightpivot/Area2D" to="." method="_on_Flashlight_body_entered"]
+
+[connection signal="body_exited" from="Lightpivot/Area2D" to="." method="_on_Flashlight_body_exited"]
 
 

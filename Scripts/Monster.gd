@@ -17,9 +17,19 @@ var target = null # Who are we attacking?
 
 signal induce_fear
 
-func _ready():
+func reveal():
+	_set_state(REVEALED)
+
+func conceal():
 	_set_state(IDLE)
+	_check_aggro()
+
+func _ready():
 	$Aggro/CollisionShape2D.shape.radius = aggro_range
+	if state != REVEALED: # Can be set by Player._ready.
+		conceal()
+
+func _check_aggro():
 	var bodies = $Aggro.get_overlapping_bodies()
 	if len(bodies) > 0:
 		_on_Aggro_body_entered(bodies[0])
@@ -44,8 +54,8 @@ func _on_Aggro_body_entered(body):
 	_set_state(AGGRO)
 
 func _on_Aggro_body_exited(body):
-	target = null
-	_set_state(IDLE)
+	if state != REVEALED: # Keep retreating outside of aggro.
+		_set_state(IDLE)
 
 func _on_AnimatedSprite_animation_finished():
 	if state == ATTACKING:
@@ -64,3 +74,5 @@ func _set_state(s):
 		$AnimatedSprite.play(animation)
 	elif state == ATTACKING:
 		$AnimatedSprite.play(animation + "_attack")
+	elif state == REVEALED:
+		$AnimatedSprite.play(animation)
