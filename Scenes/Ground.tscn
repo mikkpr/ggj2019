@@ -3,7 +3,7 @@
 [ext_resource path="res://Assets/Tiles/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
 
-[node name="Base" type="Node2D" index="0"]
+[node name="Ground" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform", "Z Index" ]
 
@@ -48,7 +48,7 @@ collision_mask = 1
 occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( -983050, 10, 0, -917520, 0, 0, -917514, 0, 0, -524294, 10, 0, -458758, 10, 0, -393222, 10, 0, -327686, 10, 0, -262150, 10, 0, -196614, 10, 0, -131078, 10, 0, -65542, 10, 0, -6, 10, 0, 65530, 10, 0, 131066, 10, 0, 196602, 10, 0 )
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="Player" parent="." index="2" instance=ExtResource( 2 )]
 
