@@ -32,11 +32,11 @@ func _ready():
 func _process(delta):
 	if revealed:
 		attacking = false
-		_move(approach_speed * delta)
+		_move(-retreat_speed * delta)
 	elif attacking:
 		pass # Wait for animation to end.
 	elif aggro:
-		_move(-retreat_speed * delta)
+		_move(approach_speed * delta)
 	else: # idle
 		if $AnimatedSprite.playing:
 			$AnimatedSprite.stop()
