@@ -1,7 +1,95 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/Tiles/tileset.tres" type="TileSet" id=1]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Art/Homebackground.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
+
+[sub_resource type="SegmentShape2D" id=1]
+
+custom_solver_bias = 0.0
+a = Vector2( 17.0197, -2.52245 )
+b = Vector2( -13.5214, -2.31893 )
+
+[sub_resource type="SegmentShape2D" id=2]
+
+custom_solver_bias = 0.0
+a = Vector2( -2.42516, -0.132805 )
+b = Vector2( -83.868, 0.219315 )
+
+[sub_resource type="SegmentShape2D" id=3]
+
+custom_solver_bias = 0.0
+a = Vector2( 2.62662, -2.59113 )
+b = Vector2( -0.60553, 9.35524 )
+
+[sub_resource type="SegmentShape2D" id=4]
+
+custom_solver_bias = 0.0
+a = Vector2( -1.05797, -144.425 )
+b = Vector2( 0.520142, -65.1729 )
+
+[sub_resource type="SegmentShape2D" id=5]
+
+custom_solver_bias = 0.0
+a = Vector2( -0.644592, -415.802 )
+b = Vector2( -0.644592, -409.927 )
+
+[sub_resource type="SegmentShape2D" id=6]
+
+custom_solver_bias = 0.0
+a = Vector2( -0.501404, 32.9002 )
+b = Vector2( 0.0390368, 86.2731 )
+
+[sub_resource type="SegmentShape2D" id=7]
+
+custom_solver_bias = 0.0
+a = Vector2( 0.0263367, -20.2612 )
+b = Vector2( 0, 12.2834 )
+
+[sub_resource type="SegmentShape2D" id=8]
+
+custom_solver_bias = 0.0
+a = Vector2( 0, 13.0001 )
+b = Vector2( 0, 10 )
+
+[sub_resource type="SegmentShape2D" id=9]
+
+custom_solver_bias = 0.0
+a = Vector2( 0, 13 )
+b = Vector2( 0, 10 )
+
+[sub_resource type="SegmentShape2D" id=10]
+
+custom_solver_bias = 0.0
+a = Vector2( 0, 13 )
+b = Vector2( 0, -3 )
+
+[sub_resource type="RectangleShape2D" id=13]
+
+custom_solver_bias = 0.0
+extents = Vector2( 1.36216, 10 )
+
+[sub_resource type="SegmentShape2D" id=12]
+
+custom_solver_bias = 0.0
+a = Vector2( -0.129599, -88.4541 )
+b = Vector2( -0.129599, -81.6905 )
+
+[sub_resource type="RectangleShape2D" id=14]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 0.656006 )
+
+[sub_resource type="SegmentShape2D" id=15]
+
+custom_solver_bias = 0.0
+a = Vector2( 0, 5 )
+b = Vector2( 0, 10 )
+
+[sub_resource type="RectangleShape2D" id=16]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
 
 [node name="Ground" type="Node2D" index="0"]
 
@@ -50,8 +138,113 @@ format = 1
 tile_data = PoolIntArray( -983050, 10, 0, -917520, 0, 0, -917514, 0, 0, -524294, 10, 0, -458758, 10, 0, -393222, 10, 0, -327686, 10, 0, -262150, 10, 0, -196614, 10, 0, -131078, 10, 0, -65542, 10, 0, -6, 10, 0, 65530, 10, 0, 131066, 10, 0, 196602, 10, 0 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Player" parent="." index="2" instance=ExtResource( 2 )]
+[node name="Home" type="Sprite" parent="." index="2"]
 
-position = Vector2( -140.876, -217.116 )
+position = Vector2( -11.194, -420.656 )
+texture = ExtResource( 2 )
+
+[node name="Walls" type="StaticBody2D" parent="Home" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Home/Walls" index="0"]
+
+position = Vector2( 5.14138, 162.062 )
+scale = Vector2( 2.75474, 2.0594 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Home/Walls" index="1"]
+
+position = Vector2( 162.639, -0.383117 )
+scale = Vector2( 1.5231, 1.77386 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Home/Walls" index="2"]
+
+position = Vector2( 158.344, -67.4741 )
+scale = Vector2( 1.08505, 23.8776 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Home/Walls" index="3"]
+
+position = Vector2( -157.849, 138.471 )
+scale = Vector2( 0.904559, 1.85435 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Home/Walls" index="4"]
+
+position = Vector2( 68.8859, 213.331 )
+scale = Vector2( 106.182, 0.842105 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Home/Walls" index="5"]
+
+position = Vector2( -157.147, 3.91842 )
+scale = Vector2( 1.29037, 1.80499 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Home/Walls" index="6"]
+
+position = Vector2( -28.806, -59.344 )
+scale = Vector2( 0.831903, 4.88463 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Home/Walls" index="7"]
+
+position = Vector2( -53.806, -7.46898 )
+scale = Vector2( 15, 0.624997 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Home/Walls" index="8"]
+
+position = Vector2( -133.806, -6.1861 )
+scale = Vector2( 15, 0.526316 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Home/Walls" index="9"]
+
+position = Vector2( 121.194, 160.656 )
+scale = Vector2( 23.3333, 0 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Home/Walls" index="10"]
+
+position = Vector2( -91.7226, 128.781 )
+scale = Vector2( 45.1802, 3.22115 )
+shape = SubResource( 13 )
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Home/Walls" index="11"]
+
+position = Vector2( 38.0739, 1.4355 )
+scale = Vector2( 91.6667, 1.4785 )
+shape = SubResource( 12 )
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Home/Walls" index="12"]
+
+position = Vector2( 41.194, -132.844 )
+scale = Vector2( 10.7692, 37.3358 )
+shape = SubResource( 14 )
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="Home/Walls" index="13"]
+
+position = Vector2( -133.806, -163.094 )
+scale = Vector2( 11.6667, 8.75 )
+shape = SubResource( 15 )
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="Home/Walls" index="14"]
+
+position = Vector2( -118.806, -129.344 )
+scale = Vector2( 3.84615, 0.76923 )
+shape = SubResource( 16 )
+
+[node name="Player" parent="." index="3" instance=ExtResource( 3 )]
+
+position = Vector2( -180, -180 )
 
 

@@ -23,8 +23,8 @@ func _physics_process(delta):
 	var world_limit_x = 1232
 	var world_limit_y = 768
 	
-	position.x = clamp(position.x, 0 + sprite_size.x / 2, world_limit_x - sprite_size.x / 2)
-	position.y = clamp(position.y, 0 + sprite_size.y / 2, world_limit_y - sprite_size.y / 2)
+	#position.x = clamp(position.x, 0 + sprite_size.x / 2, world_limit_x - sprite_size.x / 2)
+	#position.y = clamp(position.y, 0 + sprite_size.y / 2, world_limit_y - sprite_size.y / 2)
 
 
 func get_input():
