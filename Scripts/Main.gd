@@ -29,6 +29,7 @@ func _physics_process(delta):
 		if randi() % 100 < SPAWN_CHANCE:
 			var mob = monster.instance()
 			add_child(mob)
+			mob.target = player
 			mob.connect("induce_fear", self, "_on_Monster_induce_fear")
 			mob.position = player.position + Vector2(500, 0).rotated(randi())
 
