@@ -9,6 +9,11 @@ onready var lightpivot = $Lightpivot
 onready var light = $Lightpivot/Light
 onready var glow = $Lightpivot/Glow
 
+
+func _ready():
+	for monster in $Lightpivot/Area2D.get_overlapping_bodies():
+		_on_Flashlight_body_entered(monster)
+
 func _physics_process(delta):
 	var mouse_offset = get_local_mouse_position().normalized() * LIGHT_DISTANCE
 	var light_normal = Vector2(1, 0)
@@ -38,4 +43,9 @@ func get_input():
 	if Input.is_action_pressed('ui_up'):
 		velocity.y -= 1
 	velocity = velocity.normalized() * speed
-	
+
+func _on_Flashlight_body_entered(body):
+	body.reveal()
+
+func _on_Flashlight_body_exited(body):
+	body.conceal()

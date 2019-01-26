@@ -32,3 +32,7 @@ func update_fear(amount):
 	if fear >= MAX_FEAR:
 		print("You are too afraid to continue")
 		get_tree().paused = true
+
+
+func _on_Monster_induce_fear():
+	update_fear(FEAR_INCREMENT)
