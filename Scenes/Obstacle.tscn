@@ -13,7 +13,7 @@ polygon = PoolVector2Array( -16.7289, -4.00676, -14.9239, -16.6418, 13.0536, -16
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Caster" type="Sprite"]
+[node name="Caster" type="Sprite" index="0"]
 
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Offset", "Transform" ]
@@ -26,12 +26,13 @@ light_mask = 1
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="1"]
 
 input_pickable = false
-collision_layer = 1
+collision_layer = 2
 collision_mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 
