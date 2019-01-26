@@ -4,6 +4,7 @@ export (String) var animation = "placeholder"
 var attack_animation = animation + "_attack"
 
 export (float) var aggro_range = 300.0
+export (float) var despawn_range = 1000.0
 export (float) var approach_speed = 150.0
 export (float) var retreat_speed = 200.0
 
@@ -36,8 +37,13 @@ func _process(delta):
 		pass # Wait for animation to end.
 	elif aggro:
 		_approach(delta)
-	elif $AnimatedSprite.playing:
-		$AnimatedSprite.stop() # idle
+	else: # idle
+		if $AnimatedSprite.playing:
+			$AnimatedSprite.stop()
+		if target:
+			var dist = global_position.distance_to(target.global_position())
+			if dist > despawn_range:
+				queue_free()
 
 func _approach(delta):
 	_moving_animation()
