@@ -32,29 +32,26 @@ func _ready():
 func _process(delta):
 	if revealed:
 		attacking = false
-		_retreat(delta)
+		_move(approach_speed * delta)
 	elif attacking:
 		pass # Wait for animation to end.
 	elif aggro:
-		_approach(delta)
+		_move(-retreat_speed * delta)
 	else: # idle
 		if $AnimatedSprite.playing:
 			$AnimatedSprite.stop()
 		if target:
-			var dist = global_position.distance_to(target.global_position())
+			var dist = global_position.distance_to(target.global_position)
 			if dist > despawn_range:
 				queue_free()
 
-func _approach(delta):
+func _move(speed):
 	_moving_animation()
-	if move_and_collide(_vec_to_target() * approach_speed * delta):
+	var vec = _vec_to_target() * speed
+	$AnimatedSprite.flip_h = vec.x > 0
+	if move_and_collide(vec) and speed > 0:
 		attacking = true
 		$AnimatedSprite.play(attack_animation)
-
-func _retreat(delta):
-	_moving_animation()
-	move_and_collide(-_vec_to_target() * retreat_speed * delta)
-	# TODO: despawn if out of map.
 
 func _moving_animation():
 	if $AnimatedSprite.animation != animation or !$AnimatedSprite.playing:
