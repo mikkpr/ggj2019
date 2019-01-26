@@ -24,8 +24,16 @@ position = Vector2( 605, 345 )
 
 [node name="Light" parent="Player/Lightpivot" index="0"]
 
-range_item_cull_mask = 1
+scale = Vector2( 0.15, 0.298104 )
+texture_scale = 4.0
+mode = 0
+shadow_filter = 1
+shadow_filter_smooth = 15.0
 shadow_item_cull_mask = 1
+
+[node name="Sprite" parent="Player" index="2"]
+
+_sections_unfolded = [ "Region", "Transform", "Visibility" ]
 
 [node name="Monster" parent="." index="3" instance=ExtResource( 3 )]
 
@@ -39,19 +47,18 @@ _sections_unfolded = [ "Material", "Visibility" ]
 
 [node name="Shadowcasters" type="Node2D" parent="." index="5"]
 
-[node name="Caster" parent="Shadowcasters" index="0" instance=ExtResource( 5 )]
-
-[node name="Caster2" parent="Shadowcasters" index="1" instance=ExtResource( 5 )]
+[node name="Caster2" parent="Shadowcasters" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 755.695, 239.213 )
 
-[node name="Caster3" parent="Shadowcasters" index="2" instance=ExtResource( 5 )]
+[node name="Caster3" parent="Shadowcasters" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 697.622, 445.774 )
 
-[node name="Caster4" parent="Shadowcasters" index="3" instance=ExtResource( 5 )]
+[node name="Caster4" parent="Shadowcasters" index="2" instance=ExtResource( 5 )]
 
 position = Vector2( 874.779, 401.669 )
 
 
 [editable path="Player"]
+[editable path="Monster"]
