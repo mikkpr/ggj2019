@@ -14,18 +14,19 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 16, 16 )
+radius = 12.8648
+height = 6.49931
 
 [sub_resource type="OccluderPolygon2D" id=3]
 
 closed = true
 cull_mode = 0
-polygon = PoolVector2Array( 0, -16, 11, -11, 16, 0, 11, 11, 0, 16, -11, 11, -16, 0, -11, -11 )
+polygon = PoolVector2Array( 0.0167236, -12.8922, 11.3926, -8.81407, 15.2561, 0.844681, 12.2511, 16.084, 5.81197, 9.21559, -9.64202, 10.7181, -15.4373, 3.2057, -11.5738, -9.24334 )
 
-[node name="Monster" type="Area2D" index="0"]
+[node name="Monster" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -39,9 +40,12 @@ audio_bus_name = "Master"
 
 frames = SubResource( 1 )
 animation = "placeholder"
+frame = 1
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
+rotation = 1.56998
 shape = SubResource( 2 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." index="2"]
