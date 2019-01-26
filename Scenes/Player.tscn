@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Light.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/lightsector2.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Art/Char1walkfront.png" type="Texture" id=4]
+[ext_resource path="res://Assets/light.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Art/Char1walkfront.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -29,38 +30,47 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Light" parent="Lightpivot" index="0" instance=ExtResource( 2 )]
 
+position = Vector2( 8, 0 )
 texture = ExtResource( 3 )
+
+[node name="Glow" parent="Lightpivot" index="1" instance=ExtResource( 2 )]
+
+texture = ExtResource( 4 )
+texture_scale = 0.15
+energy = 0.9
+mode = 0
 
 [node name="Sprite" type="Sprite" parent="." index="2"]
 
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 32, 32 )
 _sections_unfolded = [ "Region", "Transform" ]
 
-[node name="Camera2D" type="Camera2D" parent="." index="3"]
+[node name="Camera" type="Camera2D" parent="." index="3"]
 
 anchor_mode = 1
 rotating = false
 current = true
 zoom = Vector2( 0.5, 0.5 )
-limit_left = -10000000
-limit_top = -10000000
-limit_right = 10000000
-limit_bottom = 10000000
-limit_smoothed = false
+limit_left = 0
+limit_top = 0
+limit_right = 1024
+limit_bottom = 768
+limit_smoothed = true
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = false
 smoothing_speed = 5.0
 offset_v = 0.0
 offset_h = 0.0
-drag_margin_left = 0.2
-drag_margin_top = 0.2
-drag_margin_right = 0.2
-drag_margin_bottom = 0.2
+drag_margin_left = 0.1
+drag_margin_top = 0.1
+drag_margin_right = 0.1
+drag_margin_bottom = 0.1
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
+_sections_unfolded = [ "Drag Margin", "Limit" ]
 
 
