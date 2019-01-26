@@ -15,6 +15,9 @@ var target = null # Who are we attacking?
 
 func _ready():
 	$Aggro/CollisionShape2D.shape.radius = aggro_range
+	bodies = $Aggro.get_overlapping_bodies()
+	if len(bodies) > 0:
+		_on_Aggro_body_entered(bodies[0])
 
 func _process(delta):
 	if state == AGGRO:
