@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/BraveryBar.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Monster.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Obstacle.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Goal.tscn" type="PackedScene" id=7]
 
 [node name="Root" type="Node" index="0"]
 
@@ -24,6 +25,7 @@ _sections_unfolded = [ "Pause" ]
 
 [node name="UILayer" type="CanvasLayer" parent="Node" index="0"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -53,47 +55,61 @@ _sections_unfolded = [ "Z Index" ]
 
 position = Vector2( 605, 345 )
 
-[node name="Monster" parent="Node" index="4" instance=ExtResource( 5 )]
+[node name="Monsters" type="Node" parent="Node" index="4"]
+
+editor/display_folded = true
+
+[node name="Monster" parent="Node/Monsters" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 651.648, 323.453 )
 
-[node name="Shadowcasters" type="Node2D" parent="Node" index="5"]
+[node name="Obstacles" type="Node2D" parent="Node" index="5"]
 
-[node name="Caster2" parent="Node/Shadowcasters" index="0" instance=ExtResource( 6 )]
+editor/display_folded = true
+
+[node name="Obstacle" parent="Node/Obstacles" index="0" instance=ExtResource( 6 )]
 
 position = Vector2( 755.695, 239.213 )
 
-[node name="Caster5" parent="Node/Shadowcasters" index="1" instance=ExtResource( 6 )]
+[node name="Obstacle2" parent="Node/Obstacles" index="1" instance=ExtResource( 6 )]
 
 position = Vector2( -330, 400 )
 scale = Vector2( 20.6318, 40.7869 )
 
-[node name="Caster6" parent="Node/Shadowcasters" index="2" instance=ExtResource( 6 )]
+[node name="Obstacle3" parent="Node/Obstacles" index="2" instance=ExtResource( 6 )]
 
 position = Vector2( 1515.99, 392.292 )
 rotation = -3.14159
 scale = Vector2( 17.8164, 40.7869 )
 
-[node name="Caster7" parent="Node/Shadowcasters" index="3" instance=ExtResource( 6 )]
+[node name="Obstacle4" parent="Node/Obstacles" index="3" instance=ExtResource( 6 )]
 
 position = Vector2( 627.967, -333.144 )
 rotation = 1.5708
 scale = Vector2( 20.3427, 62.9551 )
 
-[node name="Caster8" parent="Node/Shadowcasters" index="4" instance=ExtResource( 6 )]
+[node name="Obstacle5" parent="Node/Obstacles" index="4" instance=ExtResource( 6 )]
 
 position = Vector2( 632.637, 1039.9 )
 rotation = -1.56844
 scale = Vector2( 16.9556, 62.9551 )
 
-[node name="Caster3" parent="Node/Shadowcasters" index="5" instance=ExtResource( 6 )]
+[node name="Obstacle6" parent="Node/Obstacles" index="5" instance=ExtResource( 6 )]
 
 position = Vector2( 697.622, 445.774 )
 
-[node name="Caster4" parent="Node/Shadowcasters" index="6" instance=ExtResource( 6 )]
+[node name="Obstacle7" parent="Node/Obstacles" index="6" instance=ExtResource( 6 )]
 
 position = Vector2( 874.779, 401.669 )
 
-[connection signal="induce_fear" from="Node/Monster" to="." method="_on_Monster_induce_fear"]
+[node name="Goal" parent="Node" index="6" instance=ExtResource( 7 )]
+
+position = Vector2( 1210, 20 )
+
+[connection signal="induce_fear" from="Node/Monsters/Monster" to="." method="_on_Monster_induce_fear"]
+
+[connection signal="body_entered" from="Node/Goal" to="Node/Goal" method="_on_Goal_body_entered"]
+
+[connection signal="goal_reached" from="Node/Goal" to="." method="_on_Goal_goal_reached"]
 
 

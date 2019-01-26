@@ -40,7 +40,9 @@ polygon = PoolVector2Array( 0, -16, 11, -11, 16, 0, 11, 11, 0, 16, -11, 11, -16,
 custom_solver_bias = 0.0
 radius = 64.0
 
-[node name="Monster" type="KinematicBody2D"]
+[node name="Monster" type="KinematicBody2D" groups=[
+"monster",
+]]
 
 input_pickable = false
 collision_layer = 8
