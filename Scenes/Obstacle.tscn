@@ -11,7 +11,7 @@ polygon = PoolVector2Array( -16.7289, -4.00676, -14.9239, -16.6418, 13.0536, -16
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+extents = Vector2( 13.1387, 13.2155 )
 
 [node name="Caster" type="Sprite" index="0"]
 
