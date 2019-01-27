@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Monster.tscn" type="PackedScene" id=2]
@@ -7,6 +7,32 @@
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Obstacle.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Goal.tscn" type="PackedScene" id=7]
+
+[sub_resource type="DynamicFontData" id=1]
+
+hinting = 2
+font_path = "res://Assets/ARCADECLASSIC.TTF"
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 20
+use_mipmaps = false
+use_filter = false
+font_data = SubResource( 1 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFontData" id=3]
+
+hinting = 2
+font_path = "res://Assets/ARCADECLASSIC.TTF"
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 30
+use_mipmaps = false
+use_filter = false
+font_data = SubResource( 3 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Resource", "Settings" ]
 
 [node name="Root" type="Node"]
 
@@ -26,7 +52,6 @@ _sections_unfolded = [ "Pause" ]
 
 [node name="UILayer" type="CanvasLayer" parent="Node" index="0"]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -36,9 +61,57 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 [node name="BraveryBar" parent="Node/UILayer" index="0" instance=ExtResource( 3 )]
 
 light_mask = 0
-position = Vector2( 600, 20 )
-scale = Vector2( 2.0625, 1 )
+position = Vector2( 617.072, 704.653 )
+scale = Vector2( 0.518167, 0.427378 )
 _sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="Mother" type="Label" parent="Node/UILayer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 679.0
+margin_top = 16.0
+margin_right = 1215.0
+margin_bottom = 37.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Oh, deary, you're awake. Would you please take out the trash?"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Announcement" type="Label" parent="Node/UILayer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 445.0
+margin_top = 223.0
+margin_right = 797.0
+margin_bottom = 254.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+text = "This is an announcement"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="Background" type="Sprite" parent="Node" index="1"]
 

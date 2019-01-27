@@ -11,9 +11,21 @@ var fear = INITIAL_FEAR
 var goal_reached = false
 
 onready var bar = $UILayer/BraveryBar
+
 onready var player = find_node("Player")
 
 func _ready():
+	var test = $UILayer/Announcement
+	
+	var white = Color(1, 1, 1, 1)
+	var pink = Color(1, 0.41, 0.71, 1)
+
+#	_get_announcement_text_node().add_color_override("font_color", white)
+#	_get_mother_text_node().add_color_override("font_color", pink)
+   
+#   announce("")
+#   mother_say("")
+
 	randomize()
 	self.update_bravery_bar()
 	
@@ -69,3 +81,30 @@ func _on_Goal_goal_reached():
 	goal_reached = true
 	pause_game()
 	print("Hooray! You did it!")
+
+
+func _get_announcement_text_node():
+	return find_node("Announcement")
+
+func _get_mother_text_node():
+	return find_node("Mother")
+       
+func announce(text):
+	var label = _get_announcement_text_node()
+	label.text = text
+	_clear_label_after_seconds(label, 3)
+
+func mother_say(text):
+	var label = _get_mother_text_node()
+	label.text = text
+	_clear_label_after_seconds(label, 3)
+       
+func _clear_label_after_seconds(label, seconds):
+	var t = Timer.new()
+	t.set_wait_time(3)
+	t.set_one_shot(true)
+	self.add_child(t)
+	t.start()
+	yield(t, "timeout")
+	label.text = ""
+	t.queue_free()
