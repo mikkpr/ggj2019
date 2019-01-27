@@ -81,8 +81,9 @@ func _on_Monster_induce_fear():
 
 
 func _on_Goal_goal_reached():
-	print("Trash taken out")
-	goal_reached = true
+	if not goal_reached:
+		print("Trash taken out")
+		goal_reached = true
 
 func _on_Home_goal_reached():
 	if goal_reached:
@@ -103,7 +104,7 @@ func _get_announcement_text_node():
 
 func _get_mother_text_node():
 	return find_node("Mother")
-       
+	   
 func announce(text):
 	var label = _get_announcement_text_node()
 	label.text = text
@@ -113,7 +114,7 @@ func mother_say(text):
 	var label = _get_mother_text_node()
 	label.text = text
 	_clear_label_after_seconds(label, 3)
-       
+	   
 func _clear_label_after_seconds(label, seconds):
 	var t = Timer.new()
 	t.set_wait_time(3)
@@ -123,3 +124,8 @@ func _clear_label_after_seconds(label, seconds):
 	yield(t, "timeout")
 	label.text = ""
 	t.queue_free()
+
+
+func _on_Door_body_entered(body):
+	if body.is_in_group('player'):
+		_change_scene(home)
