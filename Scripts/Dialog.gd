@@ -18,7 +18,7 @@ func announce(text):
 func mother_say(text):
 	var label = _get_mother_text_node()
 	label.text = text
-	_clear_label_after_seconds(label, 3)
+	_clear_label_after_seconds(label, 5)
 	   
 func _clear_label_after_seconds(label, seconds):
 	var t = Timer.new()
