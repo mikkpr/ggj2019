@@ -19,7 +19,7 @@ extents = Vector2( 78.0006, 39 )
 custom_solver_bias = 0.0
 extents = Vector2( 44.0005, 1.99979 )
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -28,6 +28,10 @@ script = ExtResource( 1 )
 [node name="Player" parent="." index="1" instance=ExtResource( 3 )]
 
 position = Vector2( 93.5424, 103.494 )
+
+[node name="Lightpivot" parent="Player" index="1"]
+
+visible = false
 
 [node name="Mom" type="Area2D" parent="." index="2"]
 
@@ -82,3 +86,4 @@ shape = SubResource( 3 )
 [connection signal="body_entered" from="SceneChanger" to="." method="_on_SceneChanger_body_entered"]
 
 
+[editable path="Player"]

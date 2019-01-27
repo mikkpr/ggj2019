@@ -17,7 +17,7 @@ extents = Vector2( 31.9932, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 5.36822, 4.69769 )
 
-[sub_resource type="OccluderPolygon2D" id=11]
+[sub_resource type="OccluderPolygon2D" id=17]
 
 closed = true
 cull_mode = 0
@@ -38,7 +38,7 @@ extents = Vector2( 6.32005, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 9.82706, 30.5996 )
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=18]
 
 custom_solver_bias = 0.0
 extents = Vector2( 32.4247, 6.97371 )
@@ -102,12 +102,7 @@ extents = Vector2( 9.82706, 31.374 )
 2/is_autotile = false
 2/occluder_offset = Vector2( 32, 32 )
 2/navigation_offset = Vector2( 32, 32 )
-2/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"shape": null,
-"shape_transform": Transform2D( 1, 0, 0, 1, 7.3278, 51.8442 )
-} ]
+2/shapes = [  ]
 3/name = "few-rock-5"
 3/texture = ExtResource( 1 )
 3/tex_offset = Vector2( 0, 0 )
@@ -208,7 +203,7 @@ extents = Vector2( 9.82706, 31.374 )
 11/region = Rect2( 64, 128, 64, 64 )
 11/is_autotile = false
 11/occluder_offset = Vector2( 32, 32 )
-11/occluder = SubResource( 11 )
+11/occluder = SubResource( 17 )
 11/navigation_offset = Vector2( 32, 32 )
 11/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
@@ -273,7 +268,7 @@ extents = Vector2( 9.82706, 31.374 )
 16/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 12 ),
+"shape": SubResource( 18 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 32.1483, 8.318 )
 } ]
 17/name = "few-rock2"
