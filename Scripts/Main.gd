@@ -21,13 +21,13 @@ func _ready():
 	var test = $UILayer/Announcement
 	
 	var white = Color(1, 1, 1, 1)
-	var pink = Color(1, 0.41, 0.71, 1)
+	var pink = Color(0, .9, 0, 1)
 
-#	_get_announcement_text_node().add_color_override("font_color", white)
-#	_get_mother_text_node().add_color_override("font_color", pink)
+	_get_announcement_text_node().add_color_override("font_color", white)
+	_get_mother_text_node().add_color_override("font_color", pink)
    
-#   announce("")
-#   mother_say("")
+	announce("")
+	mother_say("")
 
 	randomize()
 	self.update_bravery_bar()
