@@ -18,6 +18,9 @@ __meta__ = {
 "_edit_vertical_guides_": [ 1232.22, 0.757141 ]
 }
 monster = ExtResource( 2 )
+home = null
+success = null
+game_over = null
 
 [node name="Node" type="Node" parent="." index="0"]
 
@@ -97,8 +100,12 @@ position = Vector2( 874.779, 401.669 )
 
 position = Vector2( 1210, 20 )
 
-[connection signal="body_entered" from="Node/Goal" to="Node/Goal" method="_on_Goal_body_entered"]
+[node name="Home" parent="Node" index="6" instance=ExtResource( 7 )]
+
+position = Vector2( 73.2075, 662.94 )
 
 [connection signal="goal_reached" from="Node/Goal" to="." method="_on_Goal_goal_reached"]
+
+[connection signal="goal_reached" from="Node/Home" to="." method="_on_Home_goal_reached"]
 
 
