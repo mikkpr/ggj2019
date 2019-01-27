@@ -24,6 +24,10 @@ script = ExtResource( 1 )
 
 position = Vector2( 345.341, 449.152 )
 
+[node name="Lightpivot" parent="Player" index="1"]
+
+visible = false
+
 [node name="Mom" type="Area2D" parent="." index="2"]
 
 position = Vector2( 378.001, 57.0001 )
@@ -61,3 +65,4 @@ shape = SubResource( 2 )
 [connection signal="body_entered" from="SceneChanger" to="." method="_on_SceneChanger_body_entered"]
 
 
+[editable path="Player"]
