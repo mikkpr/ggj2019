@@ -11,8 +11,8 @@ config_version=3
 [application]
 
 config/name="GGJ2019"
-run/main_scene="res://Scenes/Home_Start.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://Scenes/MainMenu.tscn"
+config/icon="res://Assets/Art/Character_front0.png"
 
 [display]
 
