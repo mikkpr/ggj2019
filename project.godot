@@ -12,7 +12,7 @@ config_version=3
 
 config/name="GGJ2019"
 run/main_scene="res://Scenes/MainMenu.tscn"
-config/icon="res://icon.png"
+config/icon="res://Assets/Art/Character_front0.png"
 
 [display]
 
