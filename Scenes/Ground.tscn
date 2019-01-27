@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Monster.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Assets/Art/trees.tres" type="TileSet" id=6]
 [ext_resource path="res://Scenes/Home.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Goal.tscn" type="PackedScene" id=9]
 
 [node name="Ground" type="Node2D" index="0"]
 
@@ -30,7 +31,7 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="BraveryBar" parent="UILayer" index="0" instance=ExtResource( 3 )]
 
-position = Vector2( 630, 50 )
+position = Vector2( 610, 40 )
 
 [node name="Map" type="TileMap" parent="." index="1"]
 
@@ -136,7 +137,12 @@ drag_margin_v_enabled = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." index="7"]
 
+visible = false
 color = Color( 0, 0, 0, 1 )
+
+[node name="Goal" parent="." index="8" instance=ExtResource( 9 )]
+
+position = Vector2( -340, -200 )
 
 
 [editable path="Player"]
