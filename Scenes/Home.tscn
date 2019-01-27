@@ -1,29 +1,30 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Assets/Art/Homebackground.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Art/fire_0.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Art/fire_1.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Art/fire_2.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Art/fire_3.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Art/fire_4.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Sounds/kamin.ogg" type="AudioStream" id=7]
-[ext_resource path="res://Assets/Art/cat_0.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Art/cat_1.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Sounds/nurr.ogg" type="AudioStream" id=10]
-[ext_resource path="res://Assets/Art/mom_0.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Art/mom_1.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Art/mom_2.png" type="Texture" id=13]
-[ext_resource path="res://Assets/Art/mom_3.png" type="Texture" id=14]
-[ext_resource path="res://Assets/Sounds/noudepesu.ogg" type="AudioStream" id=15]
-[ext_resource path="res://Assets/Art/goldfish_0.png" type="Texture" id=16]
-[ext_resource path="res://Assets/Art/goldfish_1.png" type="Texture" id=17]
-[ext_resource path="res://Assets/Art/goldfish_2.png" type="Texture" id=18]
-[ext_resource path="res://Assets/Art/goldfish_3.png" type="Texture" id=19]
+[ext_resource path="res://Scripts/Home.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Art/fire_0.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Art/fire_1.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Art/fire_2.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Art/fire_3.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Art/fire_4.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sounds/kamin.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Assets/Art/cat_0.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Art/cat_1.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sounds/nurr.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Assets/Art/mom_0.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Art/mom_1.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Art/mom_2.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Art/mom_3.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Sounds/noudepesu.ogg" type="AudioStream" id=16]
+[ext_resource path="res://Assets/Art/goldfish_0.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Art/goldfish_1.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Art/goldfish_2.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Art/goldfish_3.png" type="Texture" id=20]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -32,7 +33,7 @@ animations = [ {
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "default",
 "speed": 1.0
@@ -41,7 +42,7 @@ animations = [ {
 [sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -50,7 +51,7 @@ animations = [ {
 [sub_resource type="SpriteFrames" id=4]
 
 animations = [ {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ) ],
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -58,10 +59,12 @@ animations = [ {
 
 [node name="Home" type="Sprite"]
 
+pause_mode = 1
 position = Vector2( 241, 240 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 1 )
-_sections_unfolded = [ "Offset", "Transform" ]
+script = ExtResource( 2 )
+_sections_unfolded = [ "Offset", "Pause", "Transform" ]
 
 [node name="Walls" type="StaticBody2D" parent="." index="0"]
 
@@ -80,6 +83,9 @@ polygon = PoolVector2Array( -154.806, -128.344, -71.806, -128.344, -71.806, -106
 
 [node name="Misc" type="Node2D" parent="." index="1"]
 
+pause_mode = 1
+_sections_unfolded = [ "Pause" ]
+
 [node name="Fire" type="Node2D" parent="Misc" index="0"]
 
 position = Vector2( 129, -5 )
@@ -89,12 +95,12 @@ scale = Vector2( 0.625, 0.625 )
 
 frames = SubResource( 1 )
 animation = "default"
-frame = 3
+frame = 4
 playing = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Misc/Fire" index="1"]
 
-stream = ExtResource( 7 )
+stream = ExtResource( 8 )
 volume_db = 1.0
 pitch_scale = 1.0
 autoplay = true
@@ -102,6 +108,7 @@ max_distance = 500.0
 attenuation = 1.0
 bus = "Master"
 area_mask = 1
+_sections_unfolded = [ "Pause" ]
 
 [node name="Kitty" type="Node2D" parent="Misc" index="1"]
 
@@ -120,7 +127,7 @@ playing = true
 
 position = Vector2( -2, -0.666656 )
 scale = Vector2( 1.25, 1.25 )
-stream = ExtResource( 10 )
+stream = ExtResource( 11 )
 volume_db = -20.0
 pitch_scale = 1.0
 autoplay = true
@@ -139,7 +146,7 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( 124, -172 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -147,7 +154,7 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 122.667, -168 )
 scale = Vector2( 0.833333, 0.833333 )
-stream = ExtResource( 15 )
+stream = ExtResource( 16 )
 volume_db = -25.0
 pitch_scale = 1.0
 autoplay = true
@@ -167,7 +174,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 frames = SubResource( 4 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 

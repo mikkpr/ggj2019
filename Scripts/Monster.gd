@@ -16,6 +16,8 @@ const ATTACK_SAMPLES = ['koll 2', 'koll 5']
 const RETREAT_SAMPLES = ['koll 1']
 
 func play_random_sample(type):
+	if get_tree().paused: return
+
 	var samples_arr = null
 	if type == 'attack':
 		samples_arr = ATTACK_SAMPLES
