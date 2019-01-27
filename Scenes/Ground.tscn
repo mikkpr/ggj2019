@@ -120,7 +120,6 @@ drag_margin_v_enabled = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." index="6"]
 
-visible = false
 color = Color( 0, 0, 0, 1 )
 
 

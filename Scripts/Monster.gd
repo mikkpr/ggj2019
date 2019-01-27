@@ -11,6 +11,26 @@ var monsters = ["monster1"]
 var animation = monsters[randi() % monsters.size()]
 var attack_animation = animation + "_attack"
 
+const AMBIENT_SAMPLES = ['koll 3', 'koll 4', 'koll 6']
+const ATTACK_SAMPLES = ['koll 2', 'koll 5']
+const RETREAT_SAMPLES = ['koll 1']
+
+func play_random_sample(type):
+	var samples_arr = null
+	if type == 'attack':
+		samples_arr = ATTACK_SAMPLES
+	elif type == 'retreat':
+		samples_arr = RETREAT_SAMPLES
+	elif type == 'ambient':
+		samples_arr = AMBIENT_SAMPLES
+	
+	if not samples_arr: return
+	
+	var rand_nb = randi() % samples_arr.size()
+	var audiostream = load('res://Assets/Sounds/' + samples_arr[rand_nb] + '.ogg')
+	$Audio.set_stream(audiostream)
+	$Audio.playing = true
+
 var aggro = false
 var revealed = false
 var attacking = false
@@ -19,6 +39,8 @@ var target = null # Who are we attacking or retreating from?
 func detect(player):
 	revealed = true
 	target = player
+	if randi() % 10:
+		play_random_sample('retreat')
 
 func conceal():
 	revealed = false
@@ -31,20 +53,24 @@ func _ready():
 		_on_Aggro_body_entered(bodies[0])
 
 func _process(delta):
+	if attacking:
+		return # Wait for animation to end.
 	if revealed:
-		attacking = false
 		_move(-retreat_speed * delta)
-	elif attacking:
-		pass # Wait for animation to end.
 	elif aggro:
 		_move(approach_speed * delta)
 	else: # idle
+		if randi() % 1000 == 1:
+			play_random_sample('ambient')
+
 		if $AnimatedSprite.playing:
 			$AnimatedSprite.stop()
 		if target:
 			var dist = global_position.distance_to(target.global_position)
 			if dist > despawn_range:
 				queue_free()
+				
+	
 
 func _move(speed):
 	_moving_animation()
@@ -53,6 +79,8 @@ func _move(speed):
 	if move_and_collide(vec) and speed > 0:
 		attacking = true
 		$AnimatedSprite.play(attack_animation)
+		if randi() % 10:
+			play_random_sample('attack')
 
 func _moving_animation():
 	if $AnimatedSprite.animation != animation or !$AnimatedSprite.playing:

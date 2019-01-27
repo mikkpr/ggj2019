@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/koll 3.ogg-a504d390a319e191da1d9ba6dff6c3cc.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/koll 3.ogg"
+dest_files=[ "res://.import/koll 3.ogg-a504d390a319e191da1d9ba6dff6c3cc.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

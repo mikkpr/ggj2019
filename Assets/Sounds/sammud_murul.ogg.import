@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sammud_murul.ogg-d13dfa8977e39f3afea64257d76ac0ab.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/sammud_murul.ogg"
+dest_files=[ "res://.import/sammud_murul.ogg-d13dfa8977e39f3afea64257d76ac0ab.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

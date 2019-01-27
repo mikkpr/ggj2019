@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/samm 6.ogg-52395ad3cafebb1cc71c44bdc9363d99.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/samm 6.ogg"
+dest_files=[ "res://.import/samm 6.ogg-52395ad3cafebb1cc71c44bdc9363d99.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
