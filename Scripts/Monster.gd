@@ -39,10 +39,10 @@ var target = null # Who are we attacking or retreating from?
 func detect(player):
 	revealed = true
 	target = player
-
-func conceal():
 	if randi() % 10:
 		play_random_sample('retreat')
+
+func conceal():
 	revealed = false
 
 func _ready():
