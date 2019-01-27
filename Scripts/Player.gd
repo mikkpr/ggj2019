@@ -93,10 +93,8 @@ func _set_state(s):
 		$Sprite.flip_h = false
 
 func _get_standing_animation():
-	print("standing")
 	var mouse_angle = get_local_mouse_position().normalized().angle()	
 	var mouse_direction = _get_cardinal_direction(mouse_angle)
-	print(last_move_direction, mouse_direction)
 
 	if (mouse_direction == Vector2(0, 1)):
 		return "idle_front"
@@ -116,7 +114,7 @@ func _get_side():
 func _get_walking_animation():
 	var mouse_angle = get_local_mouse_position().normalized().angle()	
 	var mouse_direction = _get_cardinal_direction(mouse_angle)
-	print("mouse direction: %s" % [mouse_direction])
+
 	if (mouse_direction == Vector2(0, 1)):
 		return "walk_front"
 	elif (mouse_direction == Vector2(0, -1)):
