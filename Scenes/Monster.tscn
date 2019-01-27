@@ -11,13 +11,13 @@
 
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": false,
-"name": "monster1_attack",
+"loop": true,
+"name": "monster1",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "monster1",
+"loop": false,
+"name": "monster1_attack",
 "speed": 5.0
 } ]
 
@@ -41,11 +41,13 @@ radius = 1.0
 "monster",
 ]]
 
+pause_mode = 1
 input_pickable = false
 collision_layer = 8
 collision_mask = 2
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Pause", "collision" ]
 aggro_range = 300.0
 despawn_range = 1000.0
 approach_speed = 150.0
@@ -73,7 +75,6 @@ gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
 collision_layer = 0
-collision_mask = 2
 audio_bus_override = false
 audio_bus_name = "Master"
 
