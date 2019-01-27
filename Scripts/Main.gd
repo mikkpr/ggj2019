@@ -23,7 +23,7 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("ui_pause"):
 		if fear < MAX_FEAR or not goal_reached:
-			get_tree().paused = !get_tree().paused
+			toggle_pause_state()
 
 	if player:
 		if randi() % 100 < SPAWN_CHANCE:
@@ -34,9 +34,9 @@ func _physics_process(delta):
 			mob.position = player.position + Vector2(500, 0).rotated(randi())
 
 func update_bravery_bar():
-	var bar = $Node/UILayer/BraveryBar/Container/ProgressBar
+	var bar = find_node('BraveryBar')
 	if bar:
-		bar.value = fear
+		bar.find_node('ProgressBar').value = fear
 	
 func update_fear(amount):
 	fear = clamp(fear + amount, INITIAL_FEAR, MAX_FEAR)
@@ -46,6 +46,16 @@ func update_fear(amount):
 	if fear >= MAX_FEAR:
 		print("You are too afraid to continue")
 		pause_game()
+
+func toggle_pause_state():
+	var paused_state = !get_tree().paused
+	get_tree().paused = paused_state
+	var home = find_node('Home')
+	if home:
+		if paused_state:
+			home.stop_all_sounds()
+		else:
+			home.play_all_sounds()
 
 func pause_game():
 	get_tree().paused = true
