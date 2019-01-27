@@ -27,7 +27,7 @@ func _ready():
 	_get_mother_text_node().add_color_override("font_color", pink)
 	
 	announce("")
-	#mother_say("")
+	mother_say("")
 	
 #	_get_announcement_text_node().get("res://Assets/ARCADECLASSIC").set_size(100)
 			
