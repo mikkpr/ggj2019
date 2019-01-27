@@ -76,26 +76,21 @@ func _on_Flashlight_body_exited(body):
 	body.conceal()
 
 func _set_state(s):
-	if s == STANDING:
+	state = s
+	if state == STANDING:
 		current_speed = 0
 		var animation = _get_standing_animation()
 		$Sprite.stop()
 		$Sprite.animation = animation
-		if animation == "idle_side":
-			$Sprite.flip_h = true if _get_side() == -1 else false
-		else:
-			$Sprite.flip_h = false
 		$Sprite.frame = 0
-
-	if state == s:
-		return
-
-	state = s
-	
 	if state == WALKING:
 		current_speed = SPEED
 		$Sprite.play(_get_walking_animation())
-		
+	if $Sprite.animation == "idle_side" or $Sprite.animation == "walk_side":
+		$Sprite.flip_h = true if _get_side() == -1 else false
+	else:
+		$Sprite.flip_h = false
+
 func _get_standing_animation():
 	print("standing")
 	var mouse_angle = get_local_mouse_position().normalized().angle()	
