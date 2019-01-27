@@ -53,11 +53,10 @@ func _ready():
 		_on_Aggro_body_entered(bodies[0])
 
 func _process(delta):
+	if attacking:
+		return # Wait for animation to end.
 	if revealed:
-		attacking = false
 		_move(-retreat_speed * delta)
-	elif attacking:
-		pass # Wait for animation to end.
 	elif aggro:
 		_move(approach_speed * delta)
 	else: # idle
