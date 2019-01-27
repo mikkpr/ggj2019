@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/tubane.ogg-9860b3e937f1eed946ae57d139f8b831.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/tubane.ogg"
+dest_files=[ "res://.import/tubane.ogg-9860b3e937f1eed946ae57d139f8b831.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

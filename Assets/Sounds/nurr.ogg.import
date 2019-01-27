@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/nurr.ogg-da6b62112bd976e56b1d08761c807b37.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/nurr.ogg"
+dest_files=[ "res://.import/nurr.ogg-da6b62112bd976e56b1d08761c807b37.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

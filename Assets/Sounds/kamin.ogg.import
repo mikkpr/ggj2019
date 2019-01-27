@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/kamin.ogg-30b360176b0ee4dd949040632daf7984.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/kamin.ogg"
+dest_files=[ "res://.import/kamin.ogg-30b360176b0ee4dd949040632daf7984.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

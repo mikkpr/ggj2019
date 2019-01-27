@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/oues_luupiv.ogg-c8a312f6e6cd695174aa938722b05e9f.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/oues_luupiv.ogg"
+dest_files=[ "res://.import/oues_luupiv.ogg-c8a312f6e6cd695174aa938722b05e9f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
