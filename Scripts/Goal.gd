@@ -1,10 +1,6 @@
-extends StaticBody2D
+extends Area2D
 
 signal goal_reached
-
-func _ready():
-	pass
-
 
 func _on_Goal_body_entered(body):
 	if body.is_in_group('player'):
