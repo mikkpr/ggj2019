@@ -22,11 +22,12 @@ var last_move_direction = Vector2(0, 1)
 func _ready():
 	
 	var white = Color(1, 1, 1, 1)
+	var pink = Color(1, 0.41, 0.71, 1)
 	_get_announcement_text_node().add_color_override("font_color", white)
-	_get_mother_text_node().add_color_override("font_color", white)
+	_get_mother_text_node().add_color_override("font_color", pink)
 	
 	announce("")
-	mother_say("")
+	#mother_say("")
 	
 #	_get_announcement_text_node().get("res://Assets/ARCADECLASSIC").set_size(100)
 			
