@@ -23,18 +23,15 @@ func _ready():
 	var white = Color(1, 1, 1, 1)
 	var pink = Color(0, .9, 0, 1)
 
-	_get_announcement_text_node().add_color_override("font_color", white)
-	_get_mother_text_node().add_color_override("font_color", pink)
-   
-	announce("")
-	mother_say("")
+	$UILayer._get_announcement_text_node().add_color_override("font_color", white)
+	$UILayer._get_mother_text_node().add_color_override("font_color", pink)
 
 	randomize()
 	self.update_bravery_bar()
 	
 func _physics_process(delta):
-	if Input.is_action_just_pressed("debug_1"):
-		self.update_fear(FEAR_INCREMENT)
+#	if Input.is_action_just_pressed("debug_1"):
+#		self.update_fear(FEAR_INCREMENT)
 
 	if Input.is_action_just_pressed("ui_pause"):
 		if fear < MAX_FEAR and not goal_reached:
@@ -59,7 +56,7 @@ func update_fear(amount):
 	self.update_bravery_bar()
 
 	if fear >= MAX_FEAR:
-		print("You are too afraid to continue")
+		$UILayer.announce("You are too afraid to continue")
 		_change_scene(game_over)
 
 func toggle_pause_state():
@@ -82,15 +79,15 @@ func _on_Monster_induce_fear():
 
 func _on_Goal_goal_reached():
 	if not goal_reached:
-		print("Trash taken out")
+		$UILayer.announce("Trash taken out")
 		goal_reached = true
 
 func _on_Home_goal_reached():
 	if goal_reached:
-		print("Good boy")
+		$UILayer.announce("Good boy!")
 		_change_scene(success)
 	else:
-		print("Get back out there")
+		$UILayer.announce("Get back out there")
 		_change_scene(home)
 
 func _change_scene(scene):
@@ -98,33 +95,6 @@ func _change_scene(scene):
 		get_tree().reload_current_scene()
 	else:
 		get_tree().change_scene_to(scene)
-
-func _get_announcement_text_node():
-	return find_node("Announcement")
-
-func _get_mother_text_node():
-	return find_node("Mother")
-	   
-func announce(text):
-	var label = _get_announcement_text_node()
-	label.text = text
-	_clear_label_after_seconds(label, 3)
-
-func mother_say(text):
-	var label = _get_mother_text_node()
-	label.text = text
-	_clear_label_after_seconds(label, 3)
-	   
-func _clear_label_after_seconds(label, seconds):
-	var t = Timer.new()
-	t.set_wait_time(3)
-	t.set_one_shot(true)
-	self.add_child(t)
-	t.start()
-	yield(t, "timeout")
-	label.text = ""
-	t.queue_free()
-
 
 func _on_Door_body_entered(body):
 	if body.is_in_group('player'):
