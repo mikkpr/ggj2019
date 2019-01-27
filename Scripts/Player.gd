@@ -20,6 +20,16 @@ var velocity = Vector2()
 var last_move_direction = Vector2(0, 1)
 
 func _ready():
+	
+	var white = Color(1, 1, 1, 1)
+	_get_announcement_text_node().add_color_override("font_color", white)
+	_get_mother_text_node().add_color_override("font_color", white)
+	
+	announce("")
+	mother_say("")
+	
+#	_get_announcement_text_node().get("res://Assets/ARCADECLASSIC").set_size(100)
+			
 	for monster in $Lightpivot/Area2D.get_overlapping_bodies():
 		_on_Flashlight_body_entered(monster)
 
@@ -127,3 +137,19 @@ func _get_walking_animation():
 		return "walk_back"
 	elif (mouse_direction == Vector2(1, 0) or mouse_direction == Vector2(-1, 0)):
 		return "walk_side"
+
+func _get_announcement_text_node():
+	return get_node("Announcement")
+
+func _get_mother_text_node():
+	return get_node("Mother")
+	
+func announce(text):
+	var label = _get_announcement_text_node()
+	label.text = text
+
+func mother_say(text):
+	var label = _get_mother_text_node()
+	label.text = text	
+
+

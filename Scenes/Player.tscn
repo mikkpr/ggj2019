@@ -1,25 +1,25 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Light.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/lightsector2.png" type="Texture" id=3]
 [ext_resource path="res://Assets/light.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Art/Character_back0.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Art/Character_front0.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Art/Character_back1.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Art/Character_back2.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Art/Character_back3.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Art/Character_back4.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Art/Character_side0.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Art/Character_side1.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Art/Character_side2.png" type="Texture" id=13]
-[ext_resource path="res://Assets/Art/Character_side3.png" type="Texture" id=14]
-[ext_resource path="res://Assets/Art/Character_side4.png" type="Texture" id=15]
-[ext_resource path="res://Assets/Art/Character_side5.png" type="Texture" id=16]
-[ext_resource path="res://Assets/Art/Character_front1.png" type="Texture" id=17]
-[ext_resource path="res://Assets/Art/Character_front2.png" type="Texture" id=18]
-[ext_resource path="res://Assets/Art/Character_front3.png" type="Texture" id=19]
-[ext_resource path="res://Assets/Art/Character_front4.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Art/Character_side0.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Art/Character_side1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Art/Character_side2.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Art/Character_side3.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Art/Character_side4.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Art/Character_side5.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Art/Character_front0.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Art/Character_front1.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Art/Character_front2.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Art/Character_front3.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Art/Character_front4.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Art/Character_back1.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Art/Character_back2.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Art/Character_back3.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Art/Character_back4.png" type="Texture" id=20]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -39,31 +39,57 @@ animations = [ {
 "name": "idle_back",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "idle_front",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "walk_back",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "idle_side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "walk_side",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "idle_front",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
 "loop": true,
 "name": "walk_front",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "idle_side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "walk_back",
+"speed": 5.0
 } ]
+
+[sub_resource type="DynamicFontData" id=4]
+
+hinting = 2
+font_path = "res://Assets/ARCADECLASSIC.TTF"
+
+[sub_resource type="DynamicFont" id=5]
+
+size = 20
+use_mipmaps = false
+use_filter = false
+font_data = SubResource( 4 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Resource", "Settings" ]
+
+[sub_resource type="DynamicFontData" id=6]
+
+hinting = 2
+font_path = "res://Assets/ARCADECLASSIC.TTF"
+
+[sub_resource type="DynamicFont" id=7]
+
+size = 12
+use_mipmaps = false
+use_filter = false
+font_data = SubResource( 6 )
+_sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Player" type="KinematicBody2D" groups=[
 "player",
@@ -145,6 +171,54 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 _sections_unfolded = [ "Drag Margin", "Limit" ]
+
+[node name="Announcement" type="Label" parent="." index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -144.0
+margin_top = -102.0
+margin_right = 159.0
+margin_bottom = -85.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 5 )
+text = "This is an announcement"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Mother" type="Label" parent="." index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -93.0
+margin_top = -187.0
+margin_right = 304.0
+margin_bottom = -173.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 7 )
+text = "Oh, deary, you're awake. Would you please take out the trash?"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
 
 [connection signal="body_entered" from="Lightpivot/Area2D" to="." method="_on_Flashlight_body_entered"]
 
