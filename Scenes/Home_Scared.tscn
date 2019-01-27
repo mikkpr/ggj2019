@@ -16,7 +16,7 @@ extents = Vector2( 78.0006, 39 )
 custom_solver_bias = 0.0
 extents = Vector2( 78.0006, 39 )
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -32,7 +32,7 @@ visible = false
 
 [node name="Player" parent="." index="2" instance=ExtResource( 5 )]
 
-position = Vector2( 345.341, 449.152 )
+position = Vector2( 342.633, 406.734 )
 
 [node name="Lightpivot" parent="Player" index="1"]
 
