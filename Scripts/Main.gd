@@ -22,7 +22,7 @@ func _physics_process(delta):
 		self.update_fear(FEAR_INCREMENT)
 
 	if Input.is_action_just_pressed("ui_pause"):
-		if fear < MAX_FEAR or not goal_reached:
+		if fear < MAX_FEAR and not goal_reached:
 			toggle_pause_state()
 
 	if player:
