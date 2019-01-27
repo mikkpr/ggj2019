@@ -29,6 +29,10 @@ script = ExtResource( 1 )
 
 script = ExtResource( 3 )
 
+[node name="BraveryBar" parent="UILayer" index="0"]
+
+visible = false
+
 [node name="Home" parent="." index="1" instance=ExtResource( 4 )]
 
 [node name="Player" parent="." index="2" instance=ExtResource( 5 )]
@@ -92,4 +96,5 @@ shape = SubResource( 3 )
 [connection signal="body_entered" from="SceneChanger" to="." method="_on_SceneChanger_body_entered"]
 
 
+[editable path="UILayer"]
 [editable path="Player"]

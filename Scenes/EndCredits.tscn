@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/EndCredits.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sounds/tubane_v2.ogg" type="AudioStream" id=2]
 
 [sub_resource type="DynamicFontData" id=1]
 
@@ -15,7 +16,7 @@ use_filter = false
 font_data = SubResource( 1 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="CreditsContainer" type="Node2D"]
+[node name="CreditsContainer" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -52,5 +53,14 @@ scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Anchor", "BBCode", "Grow Direction", "Margin", "Rect", "Size Flags", "custom_constants", "custom_fonts" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="2"]
+
+stream = ExtResource( 2 )
+volume_db = -20.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Master"
 
 
