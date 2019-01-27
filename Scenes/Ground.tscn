@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Monster.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Goal.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Art/HomeOut.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sounds/oues_luupiv.ogg" type="AudioStream" id=14]
 
 [sub_resource type="DynamicFontData" id=1]
 
@@ -45,7 +46,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 custom_solver_bias = 0.0
 extents = Vector2( 10, 15 )
 
-[node name="Ground" type="Node2D"]
+[node name="Ground" type="Node2D" index="0"]
 
 pause_mode = 2
 script = ExtResource( 1 )
@@ -248,7 +249,7 @@ color = Color( 0, 0, 0, 1 )
 
 [node name="Goal" parent="." index="8" instance=ExtResource( 12 )]
 
-position = Vector2( -330, -220 )
+position = Vector2( 1840, 270 )
 
 [node name="Door" parent="." index="9" instance=ExtResource( 12 )]
 
@@ -259,7 +260,7 @@ _sections_unfolded = [ "Audio Bus", "Collision", "Transform", "Z Index" ]
 [node name="Sprite" parent="Door" index="0"]
 
 visible = false
-frame = 7
+frame = 5
 
 [node name="CollisionShape2D" parent="Door" index="1"]
 
@@ -291,6 +292,15 @@ texture = ExtResource( 13 )
 
 build_mode = 0
 polygon = PoolVector2Array( -160, -90, -160, -100, -30, -100, 60, -160, 70, -160, 160, -100, 160, 140, -30, 140, -30, 70, -160, 70 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="11"]
+
+stream = ExtResource( 14 )
+volume_db = -15.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Master"
 
 [connection signal="goal_reached" from="Goal" to="." method="_on_Goal_goal_reached"]
 
