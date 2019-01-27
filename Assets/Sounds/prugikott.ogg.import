@@ -11,5 +11,5 @@ dest_files=[ "res://.import/prugikott.ogg-231b174e13cfdac79c3e79d5d0ea29bc.oggst
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
